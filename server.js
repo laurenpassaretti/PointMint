@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 const logger = require("morgan"); 
 const helmet = require("helmet"); 
 const cors = require("cors"); 
-const morgan = require("morgan"); 
 
 const PORT = process.env.PORT || 3000;
 
