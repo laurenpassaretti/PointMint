@@ -1,26 +1,13 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import axios from "axios";
+import { getToken } from "./tokenUtils";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const SERVER_URL = "https://auth-server-3850.herokuapp.com";
+axios.defaults.baseURL = SERVER_URL;
 
-export default App;
+const setAuthHeader = () => ({
+  headers: { authorization: `Bearer ${getToken()}` }
+});
+
+export const signup = payload => axios.post(`/users/signup`, payload);
+export const signin = payload => axios.post(`/users/signin`, payload);
+export const getUser = userId => axios.get(`/users/${userId}`, setAuthHeader());
