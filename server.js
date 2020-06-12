@@ -3,12 +3,16 @@ const mongoose = require("mongoose");
 const logger = require("morgan"); 
 const helmet = require("helmet"); 
 const cors = require("cors"); 
+const routes = require("./routes")
 
 require ("dotenv").config(); 
 const PORT = process.env.PORT || 3001;
 
 require("./models/userModel"); 
 const userRoutes = require("./routes/userRoutes"); 
+
+require("./models/appointment")
+
 
 const app = express();
 
@@ -24,6 +28,7 @@ if (process.env.NODE_ENV !== "production"){
 }
 app.use("/users", userRoutes)
 app.use(express.static("public"));
+app.use(routes)
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/pointmint", {
   useNewUrlParser: true,
