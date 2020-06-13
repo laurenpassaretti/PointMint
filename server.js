@@ -12,6 +12,7 @@ require("./models/userModel");
 const userRoutes = require("./routes/userRoutes"); 
 
 require("./models/appointment")
+const apptRoutes = require("./routes/api/appointment")
 
 
 const app = express();
@@ -27,6 +28,7 @@ if (process.env.NODE_ENV !== "production"){
   app.use(express.static("client/build"));
 }
 app.use("/users", userRoutes)
+app.use("/appointment", apptRoutes)
 app.use(express.static("public"));
 app.use(routes)
 
