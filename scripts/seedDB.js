@@ -1,6 +1,6 @@
 const mongoose = require("mongoose"); 
-const db = require("../models"); 
-
+const db = require("../models/appointment"); 
+console.log(db.Appointment)
 mongoose.connect(
     process.env.MONGODB_URI ||
     "mongodb://localhost/pointmint"
