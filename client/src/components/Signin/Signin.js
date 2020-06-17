@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import * as api from "../../api";
 import { saveToken } from "../../tokenUtils";
+import styles from "./styles"
 
 class Signin extends Component {
   state = {
@@ -44,17 +45,20 @@ class Signin extends Component {
     const { email, password, signinError } = this.state;
 
     return (
+      <div>
+        <h3 style={styles.Header}>Sign In to Your PointMint Account</h3>
       <form onSubmit={this.handleFormSubmit}>
-        <h3>Signin Form</h3>
+        
 
-        <div>
+        <div style={styles.Input}>
           <div>
-            <label>Email Address</label>
-            <span> * </span>
-            <span style={styles.error}>{signinError.email}</span>
+            <label style={styles.LabelEmail}>Email Address</label>
+            <span style={styles.Span}> * </span>
+            <span style={style.error}>{signinError.email}</span>
           </div>
 
           <input
+           
             name="email"
             type="email"
             value={email}
@@ -63,10 +67,10 @@ class Signin extends Component {
           />
         </div>
 
-        <div>
+        <div style={styles.Input}>
           <div>
-            <label>Password</label>
-            <span> * </span>
+            <label style={styles.LabelPassword}>Password</label>
+            <span style={styles.Span}> * </span>
             <span style={styles.error}>{signinError.password}</span>
           </div>
 
@@ -79,13 +83,14 @@ class Signin extends Component {
           />
         </div>
 
-        <input type="submit" value="Submit!" />
+        <input type="submit" value="Submit" style={styles.Button}/>
       </form>
+      </div>
     );
   }
 }
 
-const styles = {
+const style = {
   error: {
     color: "red"
   }

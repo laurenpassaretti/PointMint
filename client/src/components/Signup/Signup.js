@@ -111,7 +111,7 @@ class Signup extends Component {
           <div>
             <label style={styles.Label}>Confirm Password</label>
             <span style={styles.Span}> * </span>
-            <span style={styles.error}>{unMatchPwdErr}</span>
+            <span style={style.error}>{unMatchPwdErr}</span>
           </div>
 
           <input
@@ -130,10 +130,10 @@ class Signup extends Component {
   }
 }
 
-// const styles = {
-//   error: {
-//     color: "red"
-//   }
-// };
+const style = {
+  error: {
+    color: "red"
+  }
+};
 
 export default Signup;
