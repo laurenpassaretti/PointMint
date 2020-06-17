@@ -1,19 +1,21 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import AuthRoute from "./AuthRoute";
-import PrivateRoute from "./PrivateRoute";
-import AuthNavbar from "./AuthNavbar";
-import UnAuthNavbar from "./UnAuthNavbar";
-import Home from "./Home";
-import Signup from "./Signup";
-import Signin from "./Signin";
-import User from "./User";
+import AuthRoute from "../AuthRoute/AuthRoute.js";
+import PrivateRoute from "../PrivateRoute/PrivateRoute.js";
+import AuthNavbar from "../AuthNavbar/AuthNavbar";
+import UnAuthNavbar from "../UnAuthNavbar/UnAuthNavbar.js";
+import Home from "../Home/Home.js";
+import Signup from "../Signup/Signup.js";
+import Signin from "../Signin/Signin.js";
+import User from "../User/User.js";
+// import style from './AppContainer.css'
 
 class AppContainer extends Component {
   render() {
     return (
       <Router>
-        <div style={styles.container}>
+        <div>
+        {/* style={styles.container} */}
           <AuthRoute
             path="/"
             authComponent={AuthNavbar}
@@ -29,12 +31,12 @@ class AppContainer extends Component {
   }
 }
 
-const styles = {
-  container: {
-    width: 320,
-    position: "relative",
-    margin: "0 auto"
-  }
-};
+// const styles = {
+//   container: {
+//     width: 320,
+//     position: "relative",
+//     margin: "0 auto"
+//   }
+// };
 
 export default AppContainer;
