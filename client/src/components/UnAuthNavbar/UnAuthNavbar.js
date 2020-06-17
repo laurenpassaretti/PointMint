@@ -1,38 +1,41 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import Navbar from 'react-bootstrap/Navbar'; 
+import Nav from 'react-bootstrap/Nav'
+import styles from './styles'
+import Mint from "../MintImg/minty.png"
 
 const UnAuthNavBar = () => (
-  <div style={styles.container}>
-    <NavLink to="/" exact activeStyle={{ color: "red" }} style={styles.leftNav}>
+  <div>
+    <Navbar expand="lg" style={styles.Navbar}>
+    <img src ={Mint} style={styles.Mint}/>
+    <Navbar.Brand style = {styles.NavBrand}>PointMint</Navbar.Brand>
+    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+    <Navbar.Collapse id="basic-navbar-nav">
+    <Nav className="mr-auto">
+    <NavLink to="/" style={styles.Home}>
       Home
     </NavLink>
     <NavLink
       to="/signup"
-      activeStyle={{ color: "red" }}
-      style={styles.rightNavs}
+      
+      style={styles.SignUp}
     >
-      Signup
+      SignUp
     </NavLink>
     <NavLink
       to="/signin"
-      activeStyle={{ color: "red" }}
-      style={styles.rightNavs}
+      
+      style={styles.SignIn}
     >
-      Signin
+      SignIn
     </NavLink>
+    </Nav>
+    </Navbar.Collapse>
+    </Navbar>
   </div>
 );
 
-const styles = {
-  container: {
-    display: "flex"
-  },
-  leftNav: {
-    flexGrow: 4
-  },
-  rightNavs: {
-    flexGrow: 1
-  }
-};
+
 
 export default UnAuthNavBar;

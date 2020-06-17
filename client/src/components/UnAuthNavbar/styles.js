@@ -12,19 +12,20 @@ const styles = {
         color: '#A9A9A9', 
         fontSize: '20px'
     }, 
-    Profile: {
+    SignUp: {
         paddingTop: '15px',
         paddingLeft: '20%',
         color: '#A9A9A9', 
         fontSize: '20px'
     }, 
-    Logout: {
+    SignIn: {
         color: '#A9A9A9',
         fontSize: '20px',
         paddingTop: '17px',
         fontFamily: 'sans-serif',
-        paddingLeft: '30%',
-        fontSize: '20px'
+        paddingLeft: '30%'
+        
+        
     },
     Mint: {
         height: '70px',
