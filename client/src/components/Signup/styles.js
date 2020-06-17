@@ -6,8 +6,11 @@ Form: {
 
 }, 
 Header: {
-    fontWeight:'bold',
-    paddingRight: "10px"
+    paddingLeft: '660px', 
+    paddingTop: '100px', 
+    fontSize: '40px',
+    fontFamily: 'sans-serif',
+    color: '#A9A9A9'
 
 },
 Input: {
@@ -31,25 +34,32 @@ Label: {
     paddingLeft: '15px',
     fontFamily: 'sans-serif',
     fontSize: '20px',
-    paddingTop: '20px'
+    paddingTop: '20px',
+    color: '#A9A9A9'
 },
 LabelUserName: {
     paddingLeft: '38px',
     fontFamily: 'sans-serif',
     fontSize: '20px',
-    paddingTop: '20px'
+    color: '#A9A9A9'
+   
 },
 LabelEmail: {
     paddingLeft: '25px',
     fontFamily: 'sans-serif',
     fontSize: '20px',
-    paddingTop: '20px'
+    paddingTop: '20px',
+    color: '#A9A9A9'
 },
 LabelPassword: {
     paddingLeft: '45px',
     fontFamily: 'sans-serif',
     fontSize: '20px',
-    paddingTop: '20px'
+    paddingTop: '20px',
+    color: '#A9A9A9'
+},
+Span: {
+    color: '#A9A9A9'
 }
 }
 

@@ -56,8 +56,9 @@ class Signup extends Component {
     } = this.state;
 
     return (
-      <form onSubmit={this.handleFormSubmit} style={styles.Form}>
+      <div>
         <h3 style={styles.Header}>Create Your PointMint Account</h3>
+      <form onSubmit={this.handleFormSubmit} style={styles.Form}>
 
         <div style={styles.Input}>
           <div style={styles.LabelUserName}>
@@ -77,7 +78,7 @@ class Signup extends Component {
         <div style={styles.Input}>
           <div>
             <label style={styles.LabelEmail}>Email Address</label>
-            <span> * </span>
+            <span style ={styles.Span}> * </span>
             <span style={styles.error}>{signupError.email}</span>
           </div>
           <input
@@ -92,7 +93,7 @@ class Signup extends Component {
         <div style={styles.Input}>
           <div>
             <label style={styles.LabelPassword}>Password</label>
-            <span> * </span>
+            <span style={styles.Span}> * </span>
           </div>
           <input
             name="password"
@@ -109,7 +110,7 @@ class Signup extends Component {
         <div style={styles.Input}>
           <div>
             <label style={styles.Label}>Confirm Password</label>
-            <span> * </span>
+            <span style={styles.Span}> * </span>
             <span style={styles.error}>{unMatchPwdErr}</span>
           </div>
 
@@ -124,6 +125,7 @@ class Signup extends Component {
 
         <input type="submit" value="Submit" style={styles.Button}/>
       </form>
+      </div>
     );
   }
 }
