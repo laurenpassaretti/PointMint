@@ -4,12 +4,14 @@ import { removeToken } from "../../tokenUtils";
 import Navbar from 'react-bootstrap/Navbar'; 
 import Nav from 'react-bootstrap/Nav'; 
 import styles from "./styles"
+import Mint from '../MintImg/minty.png'
 // import styles from "./style.css"
 
 const AuthNavBar = ({ history, authedId }) => (
   <div> 
   {/* style={styles.container} */}
     <Navbar expand="lg" style= {styles.Navbar}>
+      <img src ={Mint} style={styles.Mint}/>
     <Navbar.Brand style = {styles.NavBrand}>PointMint</Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">

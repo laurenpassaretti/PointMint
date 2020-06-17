@@ -25,6 +25,10 @@ const styles = {
         fontFamily: 'sans-serif',
         paddingLeft: '30%',
         fontSize: '20px'
+    },
+    Mint: {
+        height: '70px',
+        width: '60px'
     }
 }
 
