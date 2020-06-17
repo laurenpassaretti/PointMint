@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import * as api from "../../api";
 import { saveToken } from "../../tokenUtils";
+import styles from "./styles"
 
 class Signup extends Component {
   state = {
@@ -55,11 +56,11 @@ class Signup extends Component {
     } = this.state;
 
     return (
-      <form onSubmit={this.handleFormSubmit}>
-        <h3>Signup Form</h3>
+      <form onSubmit={this.handleFormSubmit} style={styles.Form}>
+        <h3 style={styles.Header}>Create Your PointMint Account</h3>
 
-        <div>
-          <div>
+        <div style={styles.Input}>
+          <div style={styles.LabelUserName}>
             <label>User Name</label>
             <span> * </span>
           </div>
@@ -73,9 +74,9 @@ class Signup extends Component {
           />
         </div>
 
-        <div>
+        <div style={styles.Input}>
           <div>
-            <label>Email Address</label>
+            <label style={styles.LabelEmail}>Email Address</label>
             <span> * </span>
             <span style={styles.error}>{signupError.email}</span>
           </div>
@@ -88,9 +89,9 @@ class Signup extends Component {
           />
         </div>
 
-        <div>
+        <div style={styles.Input}>
           <div>
-            <label>Password</label>
+            <label style={styles.LabelPassword}>Password</label>
             <span> * </span>
           </div>
           <input
@@ -105,9 +106,9 @@ class Signup extends Component {
           />
         </div>
 
-        <div>
+        <div style={styles.Input}>
           <div>
-            <label>Confirm Password</label>
+            <label style={styles.Label}>Confirm Password</label>
             <span> * </span>
             <span style={styles.error}>{unMatchPwdErr}</span>
           </div>
@@ -121,16 +122,16 @@ class Signup extends Component {
           />
         </div>
 
-        <input type="submit" value="Submit!" />
+        <input type="submit" value="Submit" style={styles.Button}/>
       </form>
     );
   }
 }
 
-const styles = {
-  error: {
-    color: "red"
-  }
-};
+// const styles = {
+//   error: {
+//     color: "red"
+//   }
+// };
 
 export default Signup;
