@@ -22,6 +22,7 @@ class User extends Component {
       <div>
         <p>Name is {userInfo.name}</p>
         <p>Email is {userInfo.email}</p>
+        <a href="/client">Schedule Appointment</a>
       </div>
     );
   }

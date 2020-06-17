@@ -14,6 +14,13 @@ const AuthNavBar = ({ history, authedId }) => (
     >
       Profile
     </NavLink>
+    <NavLink
+      to={"/client"}
+      activeStyle={{ color: "red" }}
+      style={styles.rightNavs}
+    >
+      Sched Appt
+    </NavLink>
     <div
       onClick={() => {
         removeToken();

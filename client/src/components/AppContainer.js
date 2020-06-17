@@ -4,10 +4,11 @@ import AuthRoute from "./AuthRoute";
 import PrivateRoute from "./PrivateRoute";
 import AuthNavbar from "./AuthNavbar";
 import UnAuthNavbar from "./UnAuthNavbar";
-import Home from "./Home";
+import Home from "../pages/Home";
 import Signup from "./Signup";
 import Signin from "./Signin";
-import User from "./User";
+import User from "../pages/User";
+import Client from "../pages/Client";
 
 class AppContainer extends Component {
   render() {
@@ -23,6 +24,7 @@ class AppContainer extends Component {
           <Route path="/signup" component={Signup} />
           <Route path="/signin" component={Signin} />
           <PrivateRoute path="/users/:userId" component={User} />
+          <PrivateRoute path="/client" component={Client}/>
         </div>
       </Router>
     );
@@ -31,7 +33,7 @@ class AppContainer extends Component {
 
 const styles = {
   container: {
-    width: 320,
+    width: 650,
     position: "relative",
     margin: "0 auto"
   }
