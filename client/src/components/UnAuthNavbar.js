@@ -7,18 +7,11 @@ const UnAuthNavBar = () => (
       Home
     </NavLink>
     <NavLink
-      to="/signup"
+      to="/authenticate"
       activeStyle={{ color: "red" }}
       style={styles.rightNavs}
     >
-      Signup
-    </NavLink>
-    <NavLink
-      to="/signin"
-      activeStyle={{ color: "red" }}
-      style={styles.rightNavs}
-    >
-      Signin
+      Signup/Signin
     </NavLink>
   </div>
 );

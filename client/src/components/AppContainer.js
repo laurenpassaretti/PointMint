@@ -5,10 +5,9 @@ import PrivateRoute from "./PrivateRoute";
 import AuthNavbar from "./AuthNavbar";
 import UnAuthNavbar from "./UnAuthNavbar";
 import Home from "../pages/Home";
-import Signup from "./Signup";
-import Signin from "./Signin";
 import User from "../pages/User";
 import Client from "../pages/Client";
+import Authenticate from "../pages/Authenticate";
 
 class AppContainer extends Component {
   render() {
@@ -21,8 +20,7 @@ class AppContainer extends Component {
             unAuthComponent={UnAuthNavbar}
           />
           <Route exact path="/" component={Home} />
-          <Route path="/signup" component={Signup} />
-          <Route path="/signin" component={Signin} />
+          <Route path="/authenticate" component={Authenticate}/>
           <PrivateRoute path="/users/:userId" component={User} />
           <PrivateRoute path="/client" component={Client}/>
         </div>

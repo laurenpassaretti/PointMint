@@ -26,6 +26,8 @@ class Signin extends Component {
         const payload = { email, password };
         const { data } = await api.signin(payload);
         saveToken(data);
+        console.log(this.props);
+        console.log(this.props.location);
         const { from } = this.props.location.state || {
           from: { pathname: "/" }
         };

@@ -24,7 +24,7 @@ const AuthNavBar = ({ history, authedId }) => (
     <div
       onClick={() => {
         removeToken();
-        history.push("/");
+        history.push("/authenticate");
       }}
       style={{ ...styles.rightNavs, ...styles.logoutBtn }}
     >
