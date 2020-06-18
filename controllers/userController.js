@@ -1,5 +1,5 @@
-const mongoose = require("mongoose");
-const User = mongoose.model("User");
+// const mongoose = require("mongoose");
+const User = require("../models/userModel");
 
 exports.signup = async (req, res) => {
   if (!req.body.name || !req.body.email || !req.body.password) {
