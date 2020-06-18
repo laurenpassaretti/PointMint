@@ -5,6 +5,7 @@ import Nav from 'react-bootstrap/Nav'
 import styles from './styles'
 import Mint from "../MintImg/minty.png"
 
+
 const UnAuthNavBar = () => (
   <div>
     <Navbar expand="lg" style={styles.Navbar}>
