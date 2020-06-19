@@ -10,7 +10,7 @@ const UnAuthNavBar = () => (
   <div>
     <Navbar expand="lg" id="Navbar">
       <div id="logo">
-      <img src ={Mint} id="minty"/>
+      <img src ={Mint} id="Minty"/>
       </div>
    
     <Navbar.Brand id="NavBrand">PointMint</Navbar.Brand>
