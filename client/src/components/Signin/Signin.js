@@ -47,44 +47,44 @@ class Signin extends Component {
     return (
       <div>
         <h3 id="Header">Sign In to Your PointMint Account</h3>
-      <form onSubmit={this.handleFormSubmit} id="Form">
-        
+        <form onSubmit={this.handleFormSubmit} id="Form">
 
-        <div className="Input">
-          <div>
-            <label id="LabelEmail">Email Address</label>
-            <span className="Span"> * </span>
-            <span style={style.error}>{signinError.email}</span>
+
+          <div className="Input">
+            <div>
+              <label id="LabelEmail">Email Address</label>
+              <span className="Span"> * </span>
+              <span style={style.error}>{signinError.email}</span>
+            </div>
+
+            <input
+
+              name="email"
+              type="email"
+              value={email}
+              onChange={this.handleInputChange}
+              required
+            />
           </div>
 
-          <input
-           
-            name="email"
-            type="email"
-            value={email}
-            onChange={this.handleInputChange}
-            required
-          />
-        </div>
+          <div className="Input">
+            <div>
+              <label id="LabelPassword">Password</label>
+              <span className="Span"> * </span>
+              <span style={style.error}>{signinError.password}</span>
+            </div>
 
-        <div className="Input">
-          <div>
-            <label id="LabelPassword">Password</label>
-            <span className="Span"> * </span>
-            <span style={style.error}>{signinError.password}</span>
+            <input
+              name="password"
+              type="password"
+              value={password}
+              onChange={this.handleInputChange}
+              required
+            />
           </div>
 
-          <input
-            name="password"
-            type="password"
-            value={password}
-            onChange={this.handleInputChange}
-            required
-          />
-        </div>
-
-        <input type="submit" value="Submit" id="SubmitButton"/>
-      </form>
+          <input type="submit" value="Submit" id="SubmitButton" />
+        </form>
       </div>
     );
   }

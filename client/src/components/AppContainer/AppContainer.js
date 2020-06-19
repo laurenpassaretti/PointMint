@@ -8,14 +8,13 @@ import Home from "../Home/Home.js";
 import Signup from "../Signup/Signup.js";
 import Signin from "../Signin/Signin.js";
 import User from "../User/User.js";
-// import style from './AppContainer.css'
+
 
 class AppContainer extends Component {
   render() {
     return (
       <Router>
         <div>
-        {/* style={styles.container} */}
           <AuthRoute
             path="/"
             authComponent={AuthNavbar}
@@ -30,13 +29,5 @@ class AppContainer extends Component {
     );
   }
 }
-
-// const styles = {
-//   container: {
-//     width: 320,
-//     position: "relative",
-//     margin: "0 auto"
-//   }
-// };
 
 export default AppContainer;

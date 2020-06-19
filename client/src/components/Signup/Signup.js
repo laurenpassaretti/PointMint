@@ -59,73 +59,73 @@ class Signup extends Component {
     return (
       <div>
         <h3 id="Header">Create Your PointMint Account</h3>
-      <form onSubmit={this.handleFormSubmit} id="Form">
+        <form onSubmit={this.handleFormSubmit} id="Form">
 
-        <div className="Input">
-          <div id="LabelUserName">
-            <label>User Name</label>
-            <span> * </span>
-          </div>
-          <input
-            name="name"
-            type="text"
-            value={name}
-            onChange={this.handleInputChange}
-            required
-            autoFocus
-          />
-        </div>
-
-        <div className="Input">
-          <div>
-            <label id="LabelEmail">Email Address</label>
-            <span className="Span"> * </span>
-            <span style={style.error}>{signupError.email}</span>
-          </div>
-          <input
-            name="email"
-            type="email"
-            value={email}
-            onChange={this.handleInputChange}
-            required
-          />
-        </div>
-
-        <div className="Input">
-          <div>
-            <label id="LabelPassword">Password</label>
-            <span className="Span"> * </span>
-          </div>
-          <input
-            name="password"
-            type="password"
-            value={password}
-            onChange={this.handleInputChange}
-            pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
-            minLength="8"
-            title="Password must be at least 8 characters and include at least 1 uppercase character, 1 lowercase character, and 1 number."
-            required
-          />
-        </div>
-
-        <div className="Input">
-          <div>
-            <label id="Label">Confirm Password</label>
-            <span className="Span"> * </span>
-            <span style={style.error}>{unMatchPwdErr}</span>
+          <div className="Input">
+            <div id="LabelUserName">
+              <label>User Name</label>
+              <span> * </span>
+            </div>
+            <input
+              name="name"
+              type="text"
+              value={name}
+              onChange={this.handleInputChange}
+              required
+              autoFocus
+            />
           </div>
 
-          <input
-            name="passwordConfirm"
-            type="password"
-            value={passwordConfirm}
-            onChange={this.handleInputChange}
-            required
-          />
-        </div>
+          <div className="Input">
+            <div>
+              <label id="LabelEmail">Email Address</label>
+              <span className="Span"> * </span>
+              <span style={style.error}>{signupError.email}</span>
+            </div>
+            <input
+              name="email"
+              type="email"
+              value={email}
+              onChange={this.handleInputChange}
+              required
+            />
+          </div>
 
-        <input type="submit" value="Submit" id="SubmitButton"/>
-      </form>
+          <div className="Input">
+            <div>
+              <label id="LabelPassword">Password</label>
+              <span className="Span"> * </span>
+            </div>
+            <input
+              name="password"
+              type="password"
+              value={password}
+              onChange={this.handleInputChange}
+              pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
+              minLength="8"
+              title="Password must be at least 8 characters and include at least 1 uppercase character, 1 lowercase character, and 1 number."
+              required
+            />
+          </div>
+
+          <div className="Input">
+            <div>
+              <label id="Label">Confirm Password</label>
+              <span className="Span"> * </span>
+              <span style={style.error}>{unMatchPwdErr}</span>
+            </div>
+
+            <input
+              name="passwordConfirm"
+              type="password"
+              value={passwordConfirm}
+              onChange={this.handleInputChange}
+              required
+            />
+          </div>
+
+          <input type="submit" value="Submit" id="SubmitButton" />
+        </form>
       </div>
     );
   }
