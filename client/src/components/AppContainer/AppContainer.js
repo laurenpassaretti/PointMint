@@ -5,9 +5,9 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute.js";
 import AuthNavbar from "../AuthNavbar/AuthNavbar";
 import UnAuthNavbar from "../UnAuthNavbar/UnAuthNavbar.js";
 import Home from "../Home/Home.js";
-import Signup from "../Signup/Signup.js";
-import Signin from "../Signin/Signin.js";
-import User from "../User/User.js";
+import User from "../../pages/User";
+import Authenticate from '../../pages/Authenticate'
+import Client from '../../pages/Client'
 
 
 class AppContainer extends Component {
