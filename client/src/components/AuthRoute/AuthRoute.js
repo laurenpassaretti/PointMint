@@ -1,6 +1,6 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import { isAuthed } from "../tokenUtils";
+import { isAuthed } from "../../tokenUtils";
 
 const AuthRoute = ({
   authComponent: AuthComponent,

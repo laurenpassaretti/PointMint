@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Signin from "../components/Signin";
-import Signup from "../components/Signup";
+import Signin from "../components/Signin/Signin";
+import Signup from "../components/Signup/Signup";
 import { Tabs, Tab } from "react-bootstrap";
 
 function Authenticate(props) {
