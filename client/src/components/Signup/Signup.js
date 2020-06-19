@@ -64,7 +64,7 @@ class Signup extends Component {
           <div className="Input">
             <div id="LabelUserName">
               <label>User Name</label>
-              <span> * </span>
+              <span className="Span"> * </span>
             </div>
             <input
               name="name"
