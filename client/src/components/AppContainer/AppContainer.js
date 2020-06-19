@@ -21,9 +21,9 @@ class AppContainer extends Component {
             unAuthComponent={UnAuthNavbar}
           />
           <Route exact path="/" component={Home} />
-          <Route path="/signup" component={Signup} />
-          <Route path="/signin" component={Signin} />
+          <Route path="/authenticate" component={Authenticate}/>
           <PrivateRoute path="/users/:userId" component={User} />
+          <PrivateRoute path="/client" component={Client}/>
         </div>
       </Router>
     );
