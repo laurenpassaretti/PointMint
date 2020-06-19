@@ -3,33 +3,33 @@ import { NavLink } from "../../../node_modules/react-router-dom";
 import { removeToken } from "../../tokenUtils";
 import Navbar from 'react-bootstrap/Navbar'; 
 import Nav from 'react-bootstrap/Nav'; 
-import styles from "./styles"
+import "./style.css"
 import Mint from '../MintImg/minty.png'
 // import styles from "./style.css"
 
 const AuthNavBar = ({ history, authedId }) => (
   <div> 
   {/* style={styles.container} */}
-    <Navbar expand="lg" style= {styles.Navbar}>
-      <img src ={Mint} style={styles.Mint}/>
-    <Navbar.Brand style = {styles.NavBrand}>PointMint</Navbar.Brand>
+    <Navbar expand="lg" id="NavBar">
+      <img src ={Mint} id="Mint"/>
+    <Navbar.Brand id="NavBrand">PointMint</Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
   <Nav className="mr-auto">
-    <NavLink to="/" style={styles.Home}>
+    <NavLink to="/" id="Home">
     {/* exact activeStyle={{ color: "red" }} style={styles.leftNav} NavLink to / style*/}
       Home
     </NavLink>
     <NavLink
       to={`/users/${authedId}`}
-      style = {styles.Profile}
+      id="Profile"
       // activeStyle={{ color: "red" }}
       // style={styles.rightNavs}
     >
     Profile
     </NavLink>
     <div
-    style = {styles.Logout}
+    id="Logout"
       onClick={() => {
         removeToken();
         history.push("/");

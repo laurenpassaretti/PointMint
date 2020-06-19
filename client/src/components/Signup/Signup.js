@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import * as api from "../../api";
 import { saveToken } from "../../tokenUtils";
-import styles from "./styles"
+import './style.css'
+
 
 class Signup extends Component {
   state = {
@@ -57,11 +58,11 @@ class Signup extends Component {
 
     return (
       <div>
-        <h3 style={styles.Header}>Create Your PointMint Account</h3>
-      <form onSubmit={this.handleFormSubmit} style={styles.Form}>
+        <h3 id="Header">Create Your PointMint Account</h3>
+      <form onSubmit={this.handleFormSubmit} id="Form">
 
-        <div style={styles.Input}>
-          <div style={styles.LabelUserName}>
+        <div className="Input">
+          <div id="LabelUserName">
             <label>User Name</label>
             <span> * </span>
           </div>
@@ -75,11 +76,11 @@ class Signup extends Component {
           />
         </div>
 
-        <div style={styles.Input}>
+        <div className="Input">
           <div>
-            <label style={styles.LabelEmail}>Email Address</label>
-            <span style ={styles.Span}> * </span>
-            <span style={styles.error}>{signupError.email}</span>
+            <label id="LabelEmail">Email Address</label>
+            <span className="Span"> * </span>
+            <span style={style.error}>{signupError.email}</span>
           </div>
           <input
             name="email"
@@ -90,10 +91,10 @@ class Signup extends Component {
           />
         </div>
 
-        <div style={styles.Input}>
+        <div className="Input">
           <div>
-            <label style={styles.LabelPassword}>Password</label>
-            <span style={styles.Span}> * </span>
+            <label id="LabelPassword">Password</label>
+            <span className="Span"> * </span>
           </div>
           <input
             name="password"
@@ -107,10 +108,10 @@ class Signup extends Component {
           />
         </div>
 
-        <div style={styles.Input}>
+        <div className="Input">
           <div>
-            <label style={styles.Label}>Confirm Password</label>
-            <span style={styles.Span}> * </span>
+            <label id="Label">Confirm Password</label>
+            <span className="Span"> * </span>
             <span style={style.error}>{unMatchPwdErr}</span>
           </div>
 
@@ -123,7 +124,7 @@ class Signup extends Component {
           />
         </div>
 
-        <input type="submit" value="Submit" style={styles.Button}/>
+        <input type="submit" value="Submit" id="SubmitButton"/>
       </form>
       </div>
     );

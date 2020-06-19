@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import * as api from "../../api";
 import { saveToken } from "../../tokenUtils";
-import styles from "./styles"
 import './style.css'
 
 class Signin extends Component {
@@ -72,7 +71,7 @@ class Signin extends Component {
           <div>
             <label id="LabelPassword">Password</label>
             <span className="Span"> * </span>
-            <span style={styles.error}>{signinError.password}</span>
+            <span style={style.error}>{signinError.password}</span>
           </div>
 
           <input
