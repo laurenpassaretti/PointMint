@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import * as api from "../../api";
 import { saveToken } from "../../tokenUtils";
 import styles from "./styles"
+import './style.css'
 
 class Signin extends Component {
   state = {
@@ -46,14 +47,14 @@ class Signin extends Component {
 
     return (
       <div>
-        <h3 style={styles.Header}>Sign In to Your PointMint Account</h3>
-      <form onSubmit={this.handleFormSubmit}>
+        <h3 id="Header">Sign In to Your PointMint Account</h3>
+      <form onSubmit={this.handleFormSubmit} id="Form">
         
 
-        <div style={styles.Input}>
+        <div className="Input">
           <div>
-            <label style={styles.LabelEmail}>Email Address</label>
-            <span style={styles.Span}> * </span>
+            <label id="LabelEmail">Email Address</label>
+            <span className="Span"> * </span>
             <span style={style.error}>{signinError.email}</span>
           </div>
 
@@ -67,10 +68,10 @@ class Signin extends Component {
           />
         </div>
 
-        <div style={styles.Input}>
+        <div className="Input">
           <div>
-            <label style={styles.LabelPassword}>Password</label>
-            <span style={styles.Span}> * </span>
+            <label id="LabelPassword">Password</label>
+            <span className="Span"> * </span>
             <span style={styles.error}>{signinError.password}</span>
           </div>
 
@@ -83,7 +84,7 @@ class Signin extends Component {
           />
         </div>
 
-        <input type="submit" value="Submit" style={styles.Button}/>
+        <input type="submit" value="Submit" id="SubmitButton"/>
       </form>
       </div>
     );

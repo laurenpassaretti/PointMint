@@ -1,0 +1,34 @@
+#NavBrand {
+    color: #A9A9A9;  
+    font-size: 60px
+}
+#Navbar {
+    background-color: #cfffe5
+}
+#Home {
+    padding-top: 15px;
+    padding-left: 10%;
+    color: #A9A9A9; 
+    font-size: 20px
+}  
+#SignUp {
+    padding-top: 15px;
+    padding-left: 20%;
+    color: #A9A9A9; 
+    font-size: 20px
+} 
+#SignIn {
+    color: #A9A9A9;
+    font-size: 20px;
+    padding-top: 17px;
+    font-family: sans-serif;
+    padding-left: 30%;
+    
+    
+}
+#minty {
+    height: auto;
+    width: 5vw;
+    margin-right: 2vw;
+}
+
