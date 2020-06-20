@@ -1,22 +1,50 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Card, Form, Button} from "react-bootstrap";
+// import UserContext from '../../../utils/context/userContext'
+import API from "../utils/API";
 
 function Client() {
 
     const [appointments, setAppointments] = useState([])
-    const [formObject,setFormObject] = useState({})
+    const [formObject,setFormObject] = useState({
+        name: "",
+        email: "",
+        phone: "",
+        notes: "", 
+        date: ""
+    })
+    // const {name, email} = useContext(UserContext)
 
+    useEffect(() => {
+        loadAppointments()
+    }, [])
+
+    function loadAppointments(){
+        API.getAppointments()
+        .then(res => setAppointments(res.data)
+        ).catch(err => console.log(err))
+    }
 
     function handleFormSubmit(event){
         event.preventDefault(); 
-        if (formObject.date && formObject.notes){
-            API.create({
-                name: 
-                email: 
+        console.log(formObject)
+        if (formObject.date || formObject.notes){
+            API.saveAppointment({
+                name: formObject.name,
+                email: formObject.email,
                 phone: formObject.number,
                 notes: formObject.notes,
                 date: formObject.date
             })
+            .then(() => setFormObject({
+                name: "",
+                email: "", 
+                phone: "", 
+                notes: "", 
+                date: ""
+            }))
+            .then(() => loadAppointments())
+            .catch(err => console.log(err)); 
         }
     }
     function handleInputChange(event){
@@ -30,22 +58,49 @@ function Client() {
         <Card>
             <Card.Header>Schedule An Appointment</Card.Header>
             <Form>
+            <Form.Group>
+                    <Form.Label>Name</Form.Label>
+                    <Form.Control 
+                    as="textarea" 
+                    name="name"
+                    onChange={handleInputChange}
+                    ></Form.Control>
+                </Form.Group>
+                <Form.Group>
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control 
+                    as="textarea" 
+                    name="email"
+                    onChange={handleInputChange}
+                    ></Form.Control>
+                </Form.Group>
+                <Form.Group>
+                    <Form.Label>Appointment Notes</Form.Label>
+                    <Form.Control 
+                    as="textarea" 
+                    name="notes"
+                    onChange={handleInputChange}
+                    ></Form.Control>
+                </Form.Group>
+                <Form.Group>
+                    <Form.Label>Enter Your Phone Number (No Dashes)</Form.Label>
+                    <Form.Control as="textarea" name="number"
+                     onChange ={handleInputChange}
+                    ></Form.Control>
+                </Form.Group>
                 <Form.Group>
                     <Form.Label>Avaliable Appointments</Form.Label>
-                    <Form.Control as="select">
+                    <Form.Control as="select"
+                    onChange={handleInputChange}
+                    name="date"
+                    >
                         <option value="0">Choose a date...</option>
-                        <option name="date"value="June 20, 2020">June 20, 2020</option>
+                        <option value="June 20, 2020">June 20, 2020</option>
                     </Form.Control>
                 </Form.Group>
-                <Form.Group>
-                    <Form.Control>Appointment Notes</Form.Control>
-                    <Form.Control as="textarea" name="notes"></Form.Control>
-                </Form.Group>
-                <Form.Group>
-                    <Form.Control>Enter Your Phone Number (No Dashes)</Form.Control>
-                    <Form.Control as="textarea" name="number"></Form.Control>
-                </Form.Group>
-                <Button variant="primary" type="submit">
+                <Button variant="primary" type="submit"
+                onClick={handleFormSubmit}
+                >
                     Submit
                 </Button>
             </Form>

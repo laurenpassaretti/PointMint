@@ -28,13 +28,14 @@ if (process.env.NODE_ENV !== "production"){
   app.use(express.static("client/build"));
 }
 app.use("/users", userRoutes);
-app.use("/appointment", apptRoutes);
+app.use("/appointments", apptRoutes);
 app.use(express.static("public"));
 // app.use(routes)
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/pointmint", {
   useNewUrlParser: true,
-  useFindAndModify: false
+  useFindAndModify: false,
+  useUnifiedTopology: true
 });
 mongoose.connection.on("error", err => {
   console.error(err.message);

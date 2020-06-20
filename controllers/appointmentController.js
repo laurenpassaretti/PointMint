@@ -1,5 +1,6 @@
 const db = require("../models/appointment"); 
 
+
 module.exports = {
 findAll: function(req,res){
     db.Appointment
@@ -8,6 +9,8 @@ findAll: function(req,res){
     .catch(err => res.state(422).json(err))
 },
 create: function(req,res){
+    console.log("made it to appt controller!")
+    console.log(req.body)
     db.Appointment
     .create(req.body)
     .then(dbModel => res.json(dbModel))
