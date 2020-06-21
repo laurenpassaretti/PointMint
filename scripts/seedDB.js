@@ -1,5 +1,6 @@
 const mongoose = require("mongoose"); 
 const db = require("../models/appointment"); 
+const dbUser = require("../models/userModel");
 mongoose.connect(
     process.env.MONGODB_URI ||
     "mongodb://localhost/pointmint"
@@ -40,10 +41,46 @@ db.Appointment
 .remove({})
 .then(() => db.Appointment.collection.insertMany(appointmentSeed))
 .then(data => {
-    console.log(data.result.n + " records inserted!"); 
-    process.exit(0); 
+    console.log(data.result.n + " appointment records inserted!"); 
+    // process.exit(0); 
 })
 .catch(err => {
     console.error(err); 
     process.exit(1)
 })
+
+const staffSeed = [
+    {
+        email: "secretary@doctoroffice.com",
+        name: "Sue Secretary",
+        password: "TestSue123",
+        user_type: "staff"
+    },
+    {
+        email: "nurse@doctoroffice.com",
+        name: "Nancy Nurse",
+        password: "TestNancy123",
+        user_type: "staff"
+    },
+    {
+        email: "foo@bob.com",
+        name: "Bob Foo",
+        password: "TestBob123"
+    },
+    {
+        email: "bar@mary.com",
+        name: "Mary Bar",
+        password: "TestMary123"
+    }
+];
+
+dbUser.deleteMany({})
+    .then(() => dbUser.create(staffSeed)
+    .then(data => {
+        console.log(data.length + " user records inserted!"); 
+        process.exit(0); 
+    }))    
+    .catch(err => {
+        console.error(err); 
+        process.exit(1)
+    });
