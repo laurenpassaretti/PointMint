@@ -23,6 +23,11 @@ function Client() {
     }, [])
 
     const onChange = date => setFormObject({ ...formObject, date })
+    
+   const valid = function( current ){
+        return current.day() !== 0 && current.day() !== 6;
+    };
+
 
     function loadAppointments(){
         API.getAppointments()
@@ -100,9 +105,10 @@ function Client() {
                    onChange={onChange}
                    value={formObject.date}
                    name="date"
-                   />
-                
-                </Form.Group>
+                   allowPartialRange="true"
+                   isValidDate={valid}            
+                    />
+                    </Form.Group>
                 <Button variant="primary" type="submit"
                 onClick={handleFormSubmit}
                 >
