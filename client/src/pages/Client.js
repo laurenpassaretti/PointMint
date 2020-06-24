@@ -83,13 +83,13 @@ function Client() {
                     ></Form.Control>
                 </Form.Group>
                 <Form.Group>
-                    <Form.Label>Enter Your Phone Number (No Dashes)</Form.Label>
+                    <Form.Label>Enter Your Phone Number</Form.Label>
                     <Form.Control as="textarea" name="number"
                      onChange ={handleInputChange}
                     ></Form.Control>
                 </Form.Group>
                 <Form.Group>
-                    <Form.Label>Avaliable Appointments</Form.Label>
+                    <Form.Label>Available Appointments</Form.Label>
                     <Form.Control as="select"
                     onChange={handleInputChange}
                     name="date"
