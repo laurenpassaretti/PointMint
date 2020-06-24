@@ -10,7 +10,7 @@ class Signup extends Component {
     email: "",
     password: "",
     passwordConfirm: "",
-    user_type: "",
+    user_type: "client",
     unMatchPwdErr: "",
     signupError: {}
   };
