@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Card, Form, Button} from "react-bootstrap";
 import API from "../utils/API";
-import DTP from '../components/DateTimePicker/DTP'
+import DTP from '../components/DatePicker/DatePicker'
 
 
 

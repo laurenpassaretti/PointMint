@@ -11,9 +11,6 @@ const max = new Date (2020, 6, 10, 12, 30)
           value={props.value}
           minDate = {min}
           maxDate = {max}
-         
-          
-          
         />
       </div>
       
