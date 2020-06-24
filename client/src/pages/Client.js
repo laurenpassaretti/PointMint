@@ -4,6 +4,9 @@ import { Card, Form, Button} from "react-bootstrap";
 import API from "../utils/API";
 import DTP from '../components/DateTimePicker/DTP'
 
+
+
+
 function Client() {
 
     const [appointments, setAppointments] = useState([])
@@ -14,11 +17,12 @@ function Client() {
         notes: "", 
         date: ""
     })
-    // const {name, email} = useContext(UserContext)
-
+    
     useEffect(() => {
         loadAppointments()
     }, [])
+
+    const onChange = date => setFormObject({ ...formObject, date })
 
     function loadAppointments(){
         API.getAppointments()
@@ -91,14 +95,13 @@ function Client() {
                 </Form.Group>
                 <Form.Group>
                     <Form.Label>Available Appointments</Form.Label>
-                    <DTP/>
-                    {/* <Form.Control as="select"
-                    onChange={handleInputChange}
-                    name="date"
-                    >
-                        <option value="0">Choose a date...</option>
-                        <option value="June 20, 2020">June 20, 2020</option>
-                    </Form.Control> */}
+                   
+                   <DTP
+                   onChange={onChange}
+                   value={formObject.date}
+                   name="date"
+                   />
+                
                 </Form.Group>
                 <Button variant="primary" type="submit"
                 onClick={handleFormSubmit}

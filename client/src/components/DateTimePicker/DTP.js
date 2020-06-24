@@ -1,23 +1,21 @@
-import React, { Component } from 'react';
+import React  from 'react';
 import DateTimePicker from 'react-datetime-picker';
  
-class DTP extends Component {
-  state = {
-    date: new Date(),
-  }
- 
-  onChange = date => this.setState({ date })
- 
-  render() {
+function DTP (props) {
+
     return (
       <div>
         <DateTimePicker
-          onChange={this.onChange}
-          value={this.state.date}
+          onChange={props.onChange} 
+          value={props.value}
         />
       </div>
+      
     );
-  }
+   
+ 
 }
 
 export default DTP; 
+
+
