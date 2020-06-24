@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Card, Form, Button} from "react-bootstrap";
 // import UserContext from '../../../utils/context/userContext'
 import API from "../utils/API";
+import DTP from '../components/DateTimePicker/DTP'
 
 function Client() {
 
@@ -90,13 +91,14 @@ function Client() {
                 </Form.Group>
                 <Form.Group>
                     <Form.Label>Available Appointments</Form.Label>
-                    <Form.Control as="select"
+                    <DTP/>
+                    {/* <Form.Control as="select"
                     onChange={handleInputChange}
                     name="date"
                     >
                         <option value="0">Choose a date...</option>
                         <option value="June 20, 2020">June 20, 2020</option>
-                    </Form.Control>
+                    </Form.Control> */}
                 </Form.Group>
                 <Button variant="primary" type="submit"
                 onClick={handleFormSubmit}

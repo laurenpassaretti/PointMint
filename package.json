@@ -16,7 +16,8 @@
     "logger": "0.0.1",
     "mongoose": "^5.9.18",
     "morgan": "^1.10.0",
-    "react-bootstrap": "^1.0.1"
+    "react-bootstrap": "^1.0.1",
+    "react-datetime-picker": "^3.0.2"
   },
   "devDependencies": {
     "concurrently": "^5.2.0",
