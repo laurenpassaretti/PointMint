@@ -7,6 +7,7 @@ class Signin extends Component {
   state = {
     email: "",
     password: "",
+    user_type: "",
     signinError: {}
   };
 
@@ -21,10 +22,10 @@ class Signin extends Component {
 
   handleFormSubmit = async event => {
     event.preventDefault();
-    const { email, password } = this.state;
+    const { email, password, user_type } = this.state;
     if (email && password) {
       try {
-        const payload = { email, password };
+        const payload = { email, password, user_type };
         const { data } = await api.signin(payload);
         saveToken(data);
         const { from } = this.props.location.state || {

@@ -10,6 +10,7 @@ class Signup extends Component {
     email: "",
     password: "",
     passwordConfirm: "",
+    user_type: "client",
     unMatchPwdErr: "",
     signupError: {}
   };
@@ -29,9 +30,9 @@ class Signup extends Component {
       this.setState({ unMatchPwdErr: "Doesn't match!" });
       return;
     }
-    const { name, email, password } = this.state;
+    const { name, email, password, user_type } = this.state;
     if (name && email && password) {
-      const payload = { name, email, password };
+      const payload = { name, email, password, user_type };
       try {
         const { data } = await api.signup(payload);
         saveToken(data);

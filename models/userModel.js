@@ -21,7 +21,12 @@ const userSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true
-  }
+  },
+  user_type: {
+    type: String,
+    enum: ['client', 'staff'],
+    default: 'client'
+  },
 });
 
 userSchema.pre("save", function(next) {
@@ -58,4 +63,4 @@ userSchema.methods.newToken = function() {
   });
 };
 
-mongoose.model("User", userSchema);
+module.exports = mongoose.model("User", userSchema);

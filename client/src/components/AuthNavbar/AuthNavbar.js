@@ -18,14 +18,13 @@ const AuthNavBar = ({ history, authedId }) => (
         <Nav className="mr-auto">
           <NavLink to="/" id="Home">
             Home
-    </NavLink>
+          </NavLink>
           <NavLink
             to={`/users/${authedId}`}
             id="Profile"
-
           >
             Profile
-    </NavLink>
+          </NavLink>
           <div
             id="Logout"
             onClick={() => {
@@ -34,7 +33,7 @@ const AuthNavBar = ({ history, authedId }) => (
             }}
           >
             Logout
-    </div>
+          </div>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
