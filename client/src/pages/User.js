@@ -1,33 +1,18 @@
-import React, { Component } from "react";
-import * as api from "../api";
+import React from "react";
+import { UserContext } from "../utils/UserContext";
 
 
 
-class User extends Component {
-  state = {
-    userInfo: {}
-  };
+function User(props) {
+  const { state } = React.useContext(UserContext);
 
-  async componentDidMount() {
-    try {
-      const { data } = await api.getUser(this.props.match.params.userId);
-      this.setState({ userInfo: data });
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  render() {
-    const { userInfo } = this.state;
-
-    return (
-      <div>
-        <p>Name is {userInfo.name}</p>
-        <p>Email is {userInfo.email}</p>
-        <a href="/client">Schedule Appointment</a>
-      </div>
-    );
-  }
+  return (
+    <div>
+      <p>Name is {state.name}</p>
+      <p>Email is {state.email}</p>
+      <a href="/client">Schedule Appointment</a>
+    </div>
+  );
 }
 
 export default User;

@@ -9,7 +9,11 @@ exports.signup = async (req, res) => {
   try {
     const user = await User.create(req.body);
     const token = user.newToken();
-    return res.status(200).send(token);
+    const body = {
+      token: token,
+      user: user
+    }
+    return res.status(200).send(body);
   } catch (error) {
     if (error.code === 11000) {
       return res.status(400).send({ email: "Address already in use!" });
@@ -33,9 +37,12 @@ exports.signin = async (req, res) => {
   if (!match) {
     return res.status(401).send({ password: "Password wrong!" });
   }
-
   const token = user.newToken();
-  return res.status(200).send(token);
+  const body = {
+    token: token,
+    user: user
+  }
+  return res.status(200).send(body);
 };
 
 exports.getUser = async (req, res) => {

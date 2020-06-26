@@ -1,11 +1,14 @@
-import React, { Component } from "react";
+import React from "react";
 import * as api from "../../api";
 import { saveToken } from "../../tokenUtils";
 import './style.css'
+import { UserContext } from "../../utils/UserContext";
+import { ERR_PASSWORD, ERR_SIGNUP, USER_SIGNUP } from "../../utils/actions";
 
 
-class Signup extends Component {
-  state = {
+function Signup(props) {
+  const { dispatch } = React.useContext(UserContext);
+  const initialState = {
     name: "",
     email: "",
     password: "",
@@ -14,122 +17,118 @@ class Signup extends Component {
     unMatchPwdErr: "",
     signupError: {}
   };
+  const [user, setUser] = React.useState(initialState);
 
-  handleInputChange = event => {
+  const handleInputChange = event => {
     const target = event.target;
     const value = target.type === "checkbox" ? target.checked : target.value;
-    const name = target.name;
-    this.setState({
-      [name]: value
+    setUser({
+      ...user,
+      [event.target.name]: value
     });
   };
 
-  handleFormSubmit = async event => {
+  const handleFormSubmit = async event => {
     event.preventDefault();
-    if (this.state.password !== this.state.passwordConfirm) {
-      this.setState({ unMatchPwdErr: "Doesn't match!" });
+    if (user.password !== user.passwordConfirm) {
+      dispatch({ type: ERR_PASSWORD, error: "Doesn't match!"})
+      setUser({ unMatchPwdErr: "Doesn't match!" });
       return;
     }
-    const { name, email, password, user_type } = this.state;
-    if (name && email && password) {
+    if (user.name && user.email && user.password) {
+      const name = user.name;
+      const email = user.email;
+      const password = user.password;
+      const user_type = user.user_type;
       const payload = { name, email, password, user_type };
       try {
         const { data } = await api.signup(payload);
-        saveToken(data);
-        this.props.history.push("/");
+        dispatch({ type: USER_SIGNUP, payload: data.user });
+        saveToken(data.token);
+        props.history.push("/");
       } catch (error) {
         if (error.response) {
           console.log(error);
           const { data } = error.response;
-          this.setState({ signupError: data });
+          dispatch({ type: ERR_SIGNUP, error: data });
+          setUser({ signupError: data });
         }
       }
     }
   };
 
-  render() {
-    const {
-      name,
-      email,
-      password,
-      passwordConfirm,
-      unMatchPwdErr,
-      signupError
-    } = this.state;
+  return (
+    <div>
+      <h3 id="Header">Create Your PointMint Account</h3>
+      <form onSubmit={handleFormSubmit} id="Form">
 
-    return (
-      <div>
-        <h3 id="Header">Create Your PointMint Account</h3>
-        <form onSubmit={this.handleFormSubmit} id="Form">
+        <div className="Input">
+          <div id="LabelUserName">
+            <label>User Name</label>
+            <span className="Span"> * </span>
+          </div>
+          <input
+            name="name"
+            type="text"
+            value={user.name}
+            onChange={handleInputChange}
+            required
+            autoFocus
+          />
+        </div>
 
-          <div className="Input">
-            <div id="LabelUserName">
-              <label>User Name</label>
-              <span className="Span"> * </span>
-            </div>
-            <input
-              name="name"
-              type="text"
-              value={name}
-              onChange={this.handleInputChange}
-              required
-              autoFocus
-            />
+        <div className="Input">
+          <div>
+            <label id="LabelEmail">Email Address</label>
+            <span className="Span"> * </span>
+            <span style={style.error}>{user.signupError.email}</span>
+          </div>
+          <input
+            name="email"
+            type="email"
+            value={user.email}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+
+        <div className="Input">
+          <div>
+            <label id="LabelPassword">Password</label>
+            <span className="Span"> * </span>
+          </div>
+          <input
+            name="password"
+            type="password"
+            value={user.password}
+            onChange={handleInputChange}
+            pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
+            minLength="8"
+            title="Password must be at least 8 characters and include at least 1 uppercase character, 1 lowercase character, and 1 number."
+            required
+          />
+        </div>
+
+        <div className="Input">
+          <div>
+            <label id="Label">Confirm Password</label>
+            <span className="Span"> * </span>
+            <span style={style.error}>{user.unMatchPwdErr}</span>
           </div>
 
-          <div className="Input">
-            <div>
-              <label id="LabelEmail">Email Address</label>
-              <span className="Span"> * </span>
-              <span style={style.error}>{signupError.email}</span>
-            </div>
-            <input
-              name="email"
-              type="email"
-              value={email}
-              onChange={this.handleInputChange}
-              required
-            />
-          </div>
+          <input
+            name="passwordConfirm"
+            type="password"
+            value={user.passwordConfirm}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
 
-          <div className="Input">
-            <div>
-              <label id="LabelPassword">Password</label>
-              <span className="Span"> * </span>
-            </div>
-            <input
-              name="password"
-              type="password"
-              value={password}
-              onChange={this.handleInputChange}
-              pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"
-              minLength="8"
-              title="Password must be at least 8 characters and include at least 1 uppercase character, 1 lowercase character, and 1 number."
-              required
-            />
-          </div>
-
-          <div className="Input">
-            <div>
-              <label id="Label">Confirm Password</label>
-              <span className="Span"> * </span>
-              <span style={style.error}>{unMatchPwdErr}</span>
-            </div>
-
-            <input
-              name="passwordConfirm"
-              type="password"
-              value={passwordConfirm}
-              onChange={this.handleInputChange}
-              required
-            />
-          </div>
-
-          <input type="submit" value="Submit" id="SubmitButton" />
-        </form>
-      </div>
-    );
-  }
+        <input type="submit" value="Submit" id="SubmitButton" />
+      </form>
+    </div>
+  );
 }
 
 const style = {
