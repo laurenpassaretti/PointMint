@@ -47,7 +47,7 @@ class Signin extends Component {
 
     return (
       <div>
-        <h3 id="Header" className="mt-5">Sign In to Your PointMint Account</h3>
+        <h3 id="Header">Sign In to Your PointMint Account</h3>
         <form onSubmit={this.handleFormSubmit} id="Form">
 
 

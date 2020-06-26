@@ -21,6 +21,7 @@ const UnAuthNavBar = () => (
             Home
     </NavLink>
     <NavLink
+    
     id="SignUp"
       to="/authenticate"
       
