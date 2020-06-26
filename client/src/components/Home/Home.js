@@ -12,7 +12,8 @@ import "./Home.css"
 
 function Home(){
     return(
-        <Container>
+       
+        <Container id="Container">
             <Row>
                 <Col md={{ span: 6, offset:3}}>
                 <Carousel id="Carousel">
@@ -79,6 +80,7 @@ function Home(){
             </Row>
 
         </Container>
+       
     )
 }
 
