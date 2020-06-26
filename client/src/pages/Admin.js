@@ -1,10 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
+import Admin from "../components/Admin/Admin";
 
-function Admin() {
+function adminPage() {
   return(
-      <h1>Customer Appointments</h1>
+    <Admin></Admin>
   );
 } 
 
-export default Admin;
+export default adminPage;
 
