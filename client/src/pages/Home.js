@@ -1,8 +1,9 @@
 import React from "react";
+import Home from '../components/Home/Home'
 
 function Home() {
     return(
-        <h1>Welcome to PointMint!</h1>
+        <Home/>
     );
 } 
 
