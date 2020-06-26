@@ -8,6 +8,7 @@ import Home from "../Home/Home.js";
 import User from "../../pages/User";
 import Authenticate from '../../pages/Authenticate'
 import Client from '../../pages/Client'
+import Admin from '../../pages/Admin'
 
 
 class AppContainer extends Component {
@@ -24,6 +25,7 @@ class AppContainer extends Component {
           <Route path="/authenticate" component={Authenticate}/>
           <PrivateRoute path="/users/:userId" component={User} />
           <PrivateRoute path="/client" component={Client}/>
+          <Route path="/admin" component={Admin} />
         </div>
       </Router>
     );
