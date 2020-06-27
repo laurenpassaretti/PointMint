@@ -1,4 +1,4 @@
-# Project 3 - PointMint
+# Project 3 - PointMint [https://point-mint.herokuapp.com/](https://point-mint.herokuapp.com/)
 Project for UofO Full Stack Web Development Bootcamp
 
 ## Overview
@@ -13,6 +13,7 @@ This application represents our third team project of the course, and uses MERN 
 * [Heroku](https://www.heroku.com/)
 * [Axios](https://www.npmjs.com/package/axios)
 * [React Bootstrap](https://react-bootstrap.github.io/)
+* [React Date Picker](https://www.npmjs.com/package/react-datepicker)
 * [JWT](https://jwt.io/)
 
 ## Credit
