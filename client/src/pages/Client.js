@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import { Card, Form, Button} from "react-bootstrap";
 import API from "../utils/API";
 import DTP from '../components/DatePicker/DatePicker'
+import { UserContext } from "../utils/UserContext";
 
 
 
 
 function Client() {
-
+    const { state } = React.useContext(UserContext);
     const [appointments, setAppointments] = useState([])
     const [formObject,setFormObject] = useState({
         name: "",
@@ -34,7 +35,7 @@ function Client() {
 
     function handleFormSubmit(event){
         event.preventDefault(); 
-        console.log(formObject)
+        console.log(state)
         if (formObject.date || formObject.notes){
             API.saveAppointment({
                 name: formObject.name,
@@ -79,6 +80,7 @@ function Client() {
                     as="textarea" 
                     name="email"
                     onChange={handleInputChange}
+                   
                     ></Form.Control>
                 </Form.Group>
                 <Form.Group>
