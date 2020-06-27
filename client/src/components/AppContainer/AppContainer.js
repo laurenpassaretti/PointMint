@@ -10,26 +10,23 @@ import Authenticate from '../../pages/Authenticate'
 import Client from '../../pages/Client'
 import Admin from '../../pages/Admin'
 
-
-class AppContainer extends Component {
-  render() {
-    return (
-      <Router>
-        <div>
-          <AuthRoute
-            path="/"
-            authComponent={AuthNavbar}
-            unAuthComponent={UnAuthNavbar}
-          />
-          <Route exact path="/" component={Home} />
-          <Route path="/authenticate" component={Authenticate}/>
-          <PrivateRoute path="/users/:userId" component={User} />
-          <PrivateRoute path="/client" component={Client}/>
-          <Route path="/admin" component={Admin} />
-        </div>
-      </Router>
-    );
-  }
+function AppContainer() {
+  return (
+    <Router>
+      <div>
+        <AuthRoute
+          path="/"
+          authComponent={AuthNavbar}
+          unAuthComponent={UnAuthNavbar}
+        />
+        <Route exact path="/" component={Home} />
+        <Route path="/authenticate" component={Authenticate}/>
+        <PrivateRoute path="/users/:userId" component={User} />
+        <PrivateRoute path="/client" component={Client}/>
+        <Route path="/admin" component={Admin} />
+      </div>
+    </Router>     
+  );
 }
 
 export default AppContainer;
