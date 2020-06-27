@@ -1,12 +1,13 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
-import { isAuthed } from "../../tokenUtils";
+import { UserContext } from "../../utils/UserContext";
 
+const { state } = React.useContext(UserContext);
 const PrivateRoute = ({ authedId, component: Component, ...rest }) => (
   <Route
     {...rest}
     render={props => {
-      const authedId = isAuthed();
+      const authedId = state._id;
       return authedId ? (
         <Component {...props} authedId={authedId} />
       ) : (

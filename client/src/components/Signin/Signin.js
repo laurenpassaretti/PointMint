@@ -1,6 +1,5 @@
-import React, { Component } from "react";
+import React from "react";
 import * as api from "../../api";
-import { saveToken } from "../../tokenUtils";
 import './style.css'
 import { UserContext } from "../../utils/UserContext";
 import { USER_SIGNIN, ERR_SIGNIN } from "../../utils/actions";
@@ -33,8 +32,7 @@ function Signin(props) {
         const user_type = user.user_type;
         const payload = { email, password, user_type };
         const { data } = await api.signin(payload);
-        dispatch({ type: USER_SIGNIN, payload: data.user});
-        saveToken(data.token);
+        dispatch({ type: USER_SIGNIN, payload: data.user, token: data.token });
         const { from } = props.location.state || {
           from: { pathname: "/" }
         };

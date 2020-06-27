@@ -12,6 +12,7 @@ import {
 // The getUserToken method defaults to an empty method
 export const UserContext = React.createContext();
 const initialState = {
+    _id: "",
     name: "",
     email: "",
     password: "",
@@ -20,32 +21,46 @@ const initialState = {
     unMatchPwdErr: "",
     signupError: {},
     signinError: {},
-    isAuthenticated: false
+    isAuthenticated: false,
+    token: null
 };
 
 const reducer = (state, action) => {
     switch (action.type) {
         case USER_SIGNUP:
+            localStorage.setItem("jwt-token", action.token);
             return {
                 ...state,
+                _id: action.payload._id,
                 name: action.payload.name,
                 email: action.payload.email,
                 password: action.payload.password,
                 user_type: action.payload.user_type,
-                isAuthenticated: true
+                isAuthenticated: true,
+                token: action.token
             }
         case USER_SIGNIN:
+            localStorage.setItem("jwt-token", action.token);
             return {
                 ...state,
+                _id: action.payload._id,
                 isAuthenticated: true,
                 name: action.payload.name,
                 email: action.payload.email,
                 password: action.payload.password,
-                user_type: action.payload.user_type
+                user_type: action.payload.user_type,
+                token: action.token
             };
         case USER_LOGOUT:
+            localStorage.removeItem("jwt-token");
             return {
                 ...state,
+                _id: "",
+                name: "",
+                email: "",
+                password: "",
+                passwordConfirm: "",
+                user_type: "client",
                 isAuthenticated: false
             };
         case ERR_PASSWORD:
