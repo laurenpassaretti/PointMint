@@ -5,16 +5,15 @@ import API from "../utils/API";
 
 function Admin() {
   const [appointments, setAppointments] = useState([]);
+  const headerStyle = {
+    fontfamily: 'sans-serif'
+  };
   
   useEffect(() => {
-    loadAppointments()
-  }, []);
-
-  function loadAppointments(){
     API.getAppointments()
     .then(res => setAppointments(res.data.sort(sortAppts)))
     .catch(err => console.log(err));
-  }
+  }, []);
 
   function sortAppts(a, b) {
     const dateA = new Date(a.date);
@@ -25,7 +24,7 @@ function Admin() {
 
   return(
       <Card>
-        <Card.Header>Scheduled PointMints</Card.Header>
+        <Card.Header style={headerStyle}>Scheduled PointMints</Card.Header>
         {appointments.map((item, idx) => (
           <AdminApptRow key={idx}
                         name={item.name}
@@ -36,7 +35,7 @@ function Admin() {
         ))}        
       </Card>
   );
-} 
+}
 
 export default Admin;
 
