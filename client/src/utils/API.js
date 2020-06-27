@@ -7,8 +7,11 @@ getAppointments: function(){
 }, 
 saveAppointment: function(apptData){
     return axios.post("/appointments", apptData)
-}
+},
 
+getRequested: function(email){
+    return axios.get("/appointments/email?email=" + email)
+}
 
 }
 
