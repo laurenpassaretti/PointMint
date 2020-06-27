@@ -1,9 +1,9 @@
 const router = require("express").Router(); 
 const apptController = require("../../controllers/appointmentController")
 
-// router
-// .route(":/id")
-// .get(apptController.findById)
+router
+.route("/email")
+.get(apptController.findRequested)
 // .put(apptController.update)
 // .delete(apptController.remove)
 

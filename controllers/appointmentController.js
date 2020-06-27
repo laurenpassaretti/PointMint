@@ -1,6 +1,7 @@
 const db = require("../models/appointment"); 
 
 
+
 module.exports = {
 findAll: function(req,res){
     db.Appointment
@@ -28,5 +29,14 @@ remove: function(req,res){
     .then(dbModel => dbModel.remove())
     .then(dbModel => res.json(dbModel))
     .catch(err => res.status(422).json(err))
+},
+findRequested: function(req,res){
+    db.Appointment
+    .find({email: req.query.email})
+    .then(dbModel => {
+    res.json(dbModel)
+    
+})
+    .catch(err => res.state(422).json(err))
 }
 }; 
