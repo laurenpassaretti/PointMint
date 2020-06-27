@@ -2,93 +2,96 @@ import React, { Component } from "react";
 import * as api from "../../api";
 import { saveToken } from "../../tokenUtils";
 import './style.css'
+import { UserContext } from "../../utils/UserContext";
+import { USER_SIGNIN, ERR_SIGNIN } from "../../utils/actions";
 
-class Signin extends Component {
-  state = {
+function Signin(props) {
+  const { dispatch } = React.useContext(UserContext);
+  const initialState = {
     email: "",
     password: "",
     user_type: "",
     signinError: {}
   };
+  const [user, setUser] = React.useState(initialState);
 
-  handleInputChange = event => {
+  const handleInputChange = event => {
     const target = event.target;
     const value = target.type === "checkbox" ? target.checked : target.value;
-    const name = target.name;
-    this.setState({
-      [name]: value
+    setUser({
+      ...user,
+      [event.target.name]: value
     });
   };
 
-  handleFormSubmit = async event => {
+  const handleFormSubmit = async event => {
     event.preventDefault();
-    const { email, password, user_type } = this.state;
-    if (email && password) {
+    if (user.email && user.password) {
       try {
+        const email = user.email;
+        const password = user.password;
+        const user_type = user.user_type;
         const payload = { email, password, user_type };
         const { data } = await api.signin(payload);
-        saveToken(data);
-        const { from } = this.props.location.state || {
+        dispatch({ type: USER_SIGNIN, payload: data.user});
+        saveToken(data.token);
+        const { from } = props.location.state || {
           from: { pathname: "/" }
         };
-        this.props.history.push(from.pathname);
+        props.history.push(from.pathname);
       } catch (error) {
         console.log(error);
         if (error.response) {
           const { data } = error.response;
-          this.setState({ signinError: data });
+          setUser({ ...user, signinError: data });
+          dispatch({ type: ERR_SIGNIN, error: data });
         }
       }
     }
   };
 
-  render() {
-    const { email, password, signinError } = this.state;
-
-    return (
-      <div>
-        <h3 id="Header">Sign In to Your PointMint Account</h3>
-        <form onSubmit={this.handleFormSubmit} id="Form">
+  return (
+    <div>
+      <h3 id="Header">Sign In to Your PointMint Account</h3>
+      <form onSubmit={handleFormSubmit} id="Form">
 
 
-          <div className="Input">
-            <div>
-              <label id="LabelEmail">Email Address</label>
-              <span className="Span"> * </span>
-              <span style={style.error}>{signinError.email}</span>
-            </div>
-
-            <input
-
-              name="email"
-              type="email"
-              value={email}
-              onChange={this.handleInputChange}
-              required
-            />
+        <div className="Input">
+          <div>
+            <label id="LabelEmail">Email Address</label>
+            <span className="Span"> * </span>
+            <span style={style.error}>{user.signinError.email}</span>
           </div>
 
-          <div className="Input">
-            <div>
-              <label id="LabelPassword">Password</label>
-              <span className="Span"> * </span>
-              <span style={style.error}>{signinError.password}</span>
-            </div>
+          <input
+            name="email"
+            type="email"
+            value={user.email}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
 
-            <input
-              name="password"
-              type="password"
-              value={password}
-              onChange={this.handleInputChange}
-              required
-            />
+        <div className="Input">
+          <div>
+            <label id="LabelPassword">Password</label>
+            <span className="Span"> * </span>
+            <span style={style.error}>{user.signinError.password}</span>
           </div>
 
-          <input type="submit" value="Submit" id="SubmitButton" />
-        </form>
-      </div>
-    );
-  }
+          <input
+            name="password"
+            type="password"
+            value={user.password}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+
+        <input type="submit" value="Submit" id="SubmitButton" />
+      </form>
+    </div>
+  );
 }
 
 const style = {

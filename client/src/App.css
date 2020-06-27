@@ -1,3 +1,11 @@
+#body {
+  background: url(./images/bridgepic.png) no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100%;
+  overflow: visible;
+}
+
+
 .App {
   text-align: center;
 }
