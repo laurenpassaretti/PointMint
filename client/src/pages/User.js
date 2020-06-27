@@ -23,7 +23,7 @@ function User(props) {
     API.getRequested(state.email)
     .then(res => {
     setAppointments(res.data)
-  console.log()
+  
   })
     .catch(err => console.log(err))
 
