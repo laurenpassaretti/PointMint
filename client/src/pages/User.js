@@ -14,20 +14,13 @@ function User(props) {
 
   const [appointments,setAppointments] = useState([])
 
- useEffect(() => {
-   loadRequestedAppointments()
- }, []); 
-
-
-  function loadRequestedAppointments(){
+  useEffect(() => {
     API.getRequested(state.email)
     .then(res => {
-    setAppointments(res.data)
-  
-  })
+      setAppointments(res.data)
+    })
     .catch(err => console.log(err))
-
-  }
+  });
  
  
   return (
@@ -35,42 +28,52 @@ function User(props) {
       <Container>
         <Row>
           <Col>
-      <h2>Welcome, {state.name}!</h2>
-      </Col>
-      </Row>
-      <Row>
-        <Col>
-      <h4>Registered Email:</h4>
-        <p>{state.email}</p>
-        </Col>
+            <h2>Welcome, {state.name}!</h2>
+          </Col>
         </Row>
         <Row>
           <Col>
-      <h4>To schedule a new appointment, click below:</h4>
-      <ApptButton/>
-      </Col>
-      
-      </Row>
-      <Row>
-          <Col>
-      <h4>Your requested appointments:</h4>
-      {appointments.map((item, idx) => (
-        
-          <ApptList key={idx}
-                        name={item.name}
-                        email={item.email}
-                        phone={item.phone}
-                        notes={item.notes}
-                        date={item.date}/>
-        ))}   
-     
-     
-      </Col>
-      
-      </Row>
+            <h4>Registered Email:</h4>
+            <p>{state.email}</p>
+          </Col>
+        </Row>
+        {state.user_type === "client" ? (
+          <Row>
+            <Col>
+              <h4>To schedule a new appointment, click below:</h4>
+              <ApptButton 
+                link="/client"
+                title="Schedule an Appointment"/>
+            </Col>
+          </Row>
+        ) : (
+          <Row>
+            <Col>
+              <h4>To view scheduled appointments, click below:</h4>
+              <ApptButton
+                link="/admin"
+                title="View All Appointments"/>
+            </Col>
+          </Row>
+        )}
+        {state.user_type === "client" ? (
+          <Row>
+            <Col>
+              <h4>Your requested appointments:</h4>
+              {appointments.map((item, idx) => (
+                <ApptList key={idx}
+                              name={item.name}
+                              email={item.email}
+                              phone={item.phone}
+                              notes={item.notes}
+                              date={item.date}/>
+              ))}
+            </Col>
+          </Row>
+        ) : (
+          <div></div>
+        )}
       </Container>
-     
-      
     </div>
   );
 }

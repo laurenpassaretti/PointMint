@@ -1,16 +1,10 @@
 import React from 'react'
 import './ApptButton.css'
+import { Link } from 'react-router-dom'
 
-function ApptButton(){
-    const handleButtonClick = () => {
-            
-       window.location.href="/client"
-         
-       }
+function ApptButton(props){
     return (
-        <button id="apptButton" onClick={handleButtonClick}>Schedule an Appointment</button>
-
-          
+        <Link type="button" id="apptButton" to={props.link}>{props.title}</Link>
     )
 }
 

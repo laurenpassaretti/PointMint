@@ -1,6 +1,5 @@
 import React from "react";
 import * as api from "../../api";
-import { saveToken } from "../../tokenUtils";
 import './style.css'
 import { UserContext } from "../../utils/UserContext";
 import { ERR_PASSWORD, ERR_SIGNUP, USER_SIGNUP } from "../../utils/actions";
@@ -43,8 +42,7 @@ function Signup(props) {
       const payload = { name, email, password, user_type };
       try {
         const { data } = await api.signup(payload);
-        dispatch({ type: USER_SIGNUP, payload: data.user });
-        saveToken(data.token);
+        dispatch({ type: USER_SIGNUP, payload: data.user, token: data.token });
         props.history.push("/");
       } catch (error) {
         if (error.response) {

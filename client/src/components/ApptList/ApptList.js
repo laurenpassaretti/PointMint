@@ -3,7 +3,7 @@ import React from "react";
 function ApptList(props){
     const dateSTR = new Date(props.date)
 
-    var month = new Array();
+    var month = [];
     month[0] = "January";
     month[1] = "February";
     month[2] = "March";
@@ -21,14 +21,12 @@ function ApptList(props){
 
     return (
         <div>
-<ul>
-    <li>Name: {props.name}</li>
-    <li>Date: {month[dateSTR.getMonth()]} {dateSTR.getDate()} {dateSTR.getFullYear()}</li>
-    <li>Notes: {props.notes}</li>
-</ul>
-    
-
-</div>
+            <ul>
+                <li>Name: {props.name}</li>
+                <li>Date: {month[dateSTR.getMonth()]} {dateSTR.getDate()} {dateSTR.getFullYear()}</li>
+                <li>Notes: {props.notes}</li>
+            </ul>
+        </div>
     )
 }
 

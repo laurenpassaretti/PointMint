@@ -4,12 +4,9 @@ import API from "../utils/API";
 import DTP from '../components/DatePicker/DatePicker'
 import { UserContext } from "../utils/UserContext";
 
-
-
-
 function Client() {
     const { state } = React.useContext(UserContext);
-    const [appointments, setAppointments] = useState([])
+    const [ setAppointments ] = useState([])
     const [formObject,setFormObject] = useState({
         name: "",
         phone: "",
@@ -19,17 +16,14 @@ function Client() {
     
     useEffect(() => {
         loadAppointments()
-    }, [])
+    })
 
-    const onChange = date => setFormObject({ ...formObject, date })
-    
-  
-
+    const onChange = date => setFormObject({ ...formObject, date });
 
     function loadAppointments(){
         API.getAppointments()
         .then(res => setAppointments(res.data)
-        ).catch(err => console.log(err))
+        ).catch(err => console.log(err));
     }
 
     function handleFormSubmit(event){

@@ -10,7 +10,7 @@ const UnAuthNavBar = () => (
   <div>
     <Navbar expand="lg" id="Navbar">
       <div id="logo">
-        <img src={Mint} id="Minty" />
+        <img src={Mint} id="Minty" alt="Mint leaf"/>
       </div>
 
       <Navbar.Brand id="NavBrand">PointMint</Navbar.Brand>
@@ -19,16 +19,13 @@ const UnAuthNavBar = () => (
         <Nav className="mr-auto">
           <NavLink to="/" id="Home">
             Home
-    </NavLink>
-    <NavLink
-    
-    id="SignUp"
-      to="/authenticate"
-      
-      
-    >
-      Signup/Signin
-    </NavLink>
+          </NavLink>
+          <NavLink          
+          id="SignUp"
+          to="/authenticate"
+          >
+            Signup/Signin
+          </NavLink>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

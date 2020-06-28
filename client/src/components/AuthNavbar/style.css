@@ -6,23 +6,34 @@
     background-color: #cfffe5; 
 }
 #Home {
-    padding-top: 15px; 
-    padding-left: 10%; 
+    margin-top: 15px; 
+    margin-left: 10%; 
+    color: #A9A9A9;  
+    font-size: 20px
+}
+#Client {
+    margin-top: 15px; 
+    margin-left: 15%; 
+    color: #A9A9A9;  
+    font-size: 20px
+}
+#Admin {
+    margin-top: 15px; 
+    margin-left: 15%; 
     color: #A9A9A9;  
     font-size: 20px
 }
 #Profile {
-    padding-top: 15px; 
-    padding-left: 20%; 
+    margin-top: 15px; 
+    margin-left: 15%; 
     color: #A9A9A9;  
     font-size: 20px
 }
 #Logout {
-    color: #A9A9A9; 
-    font-size: 20px; 
-    padding-top: 17px; 
+    color: #A9A9A9;
+    margin-top: 17px; 
     font-family: sans-serif; 
-    padding-left: 30%; 
+    margin-left: 15%; 
     font-size: 20px
 }
 #Mint {
