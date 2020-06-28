@@ -2,8 +2,10 @@ import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import { UserContext } from "../../utils/UserContext";
 
-const { state } = React.useContext(UserContext);
-const PrivateRoute = ({ authedId, component: Component, ...rest }) => (
+
+const PrivateRoute = ({ authedId, component: Component, ...rest }) => {
+  const { state } = React.useContext(UserContext);
+  return (  
   <Route
     {...rest}
     render={props => {
@@ -13,13 +15,13 @@ const PrivateRoute = ({ authedId, component: Component, ...rest }) => (
       ) : (
         <Redirect
           to={{
-            pathname: "/signin",
+            pathname: "/",
             state: { from: props.location }
           }}
         />
       );
     }}
   />
-);
+)};
 
 export default PrivateRoute;

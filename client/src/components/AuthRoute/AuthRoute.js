@@ -2,12 +2,13 @@ import React from "react";
 import { Route } from "react-router-dom";
 import { UserContext } from "../../utils/UserContext";
 
-const { state } = React.useContext(UserContext);
 const AuthRoute = ({
   authComponent: AuthComponent,
   unAuthComponent: UnAuthComponent,
   ...rest
-}) => (
+}) => {
+  const { state } = React.useContext(UserContext);
+  return (
   <Route
     {...rest}
     render={props => {
@@ -18,6 +19,7 @@ const AuthRoute = ({
       );
     }}
   />
-);
+)
+};
 
 export default AuthRoute;
