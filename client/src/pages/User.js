@@ -20,7 +20,7 @@ function User(props) {
       setAppointments(res.data)
     })
     .catch(err => console.log(err))
-  });
+  }, []);
  
  
   return (

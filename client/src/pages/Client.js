@@ -16,7 +16,7 @@ function Client() {
     
     useEffect(() => {
         loadAppointments()
-    })
+    }, [])
 
     const onChange = date => setFormObject({ ...formObject, date });
 
@@ -64,6 +64,7 @@ function Client() {
                     as="textarea" 
                     name="name"
                     onChange={handleInputChange}
+                    value={formObject.name}
                     ></Form.Control>
                 </Form.Group>
                 <Form.Group>
@@ -80,12 +81,15 @@ function Client() {
                     as="textarea" 
                     name="notes"
                     onChange={handleInputChange}
+                    value={formObject.notes}
                     ></Form.Control>
                 </Form.Group>
                 <Form.Group>
                     <Form.Label>Enter Your Phone Number</Form.Label>
-                    <Form.Control as="textarea" name="number"
-                     onChange ={handleInputChange}
+                    <Form.Control 
+                    as="textarea" 
+                    name="number"
+                    onChange ={handleInputChange}
                     ></Form.Control>
                 </Form.Group>
                 <Form.Group>
