@@ -17,11 +17,17 @@ function User(props) {
   useEffect(() => {
     API.getRequested(state.email)
     .then(res => {
-      setAppointments(res.data)
+      setAppointments(res.data.sort(sortAppts))
     })
     .catch(err => console.log(err))
   }, []);
- 
+
+  function sortAppts(a, b) {
+    const dateA = new Date(a.date);
+    const dateB = new Date(b.date);
+
+    return dateA - dateB;
+  }
  
   return (
     <div>
