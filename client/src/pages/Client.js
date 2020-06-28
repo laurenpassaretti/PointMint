@@ -9,7 +9,6 @@ function Client() {
     const [ setAppointments ] = useState([])
     const [formObject,setFormObject] = useState({
         name: "",
-        email: "",
         phone: "",
         notes: "", 
         date: ""
@@ -17,7 +16,7 @@ function Client() {
     
     useEffect(() => {
         loadAppointments()
-    })
+    }, [])
 
     const onChange = date => setFormObject({ ...formObject, date });
 
@@ -33,14 +32,13 @@ function Client() {
         if (formObject.date || formObject.notes){
             API.saveAppointment({
                 name: formObject.name,
-                email: formObject.email,
+                email: state.email,
                 phone: formObject.number,
                 notes: formObject.notes,
                 date: formObject.date
             })
             .then(() => setFormObject({
                 name: "",
-                email: "", 
                 phone: "", 
                 notes: "", 
                 date: ""
@@ -66,15 +64,15 @@ function Client() {
                     as="textarea" 
                     name="name"
                     onChange={handleInputChange}
+                    value={formObject.name}
                     ></Form.Control>
                 </Form.Group>
                 <Form.Group>
                     <Form.Label>Email</Form.Label>
-                    <Form.Control 
-                    as="textarea" 
-                    name="email"
-                    onChange={handleInputChange}
-                   
+                    <Form.Control
+                        disabled
+                        as="textarea"
+                        placeholder={state.email}
                     ></Form.Control>
                 </Form.Group>
                 <Form.Group>
@@ -83,12 +81,15 @@ function Client() {
                     as="textarea" 
                     name="notes"
                     onChange={handleInputChange}
+                    value={formObject.notes}
                     ></Form.Control>
                 </Form.Group>
                 <Form.Group>
                     <Form.Label>Enter Your Phone Number</Form.Label>
-                    <Form.Control as="textarea" name="number"
-                     onChange ={handleInputChange}
+                    <Form.Control 
+                    as="textarea" 
+                    name="number"
+                    onChange ={handleInputChange}
                     ></Form.Control>
                 </Form.Group>
                 <Form.Group>
