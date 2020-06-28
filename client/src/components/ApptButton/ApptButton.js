@@ -2,9 +2,9 @@ import React from 'react'
 import './ApptButton.css'
 import { Link } from 'react-router-dom'
 
-function ApptButton(){
+function ApptButton(props){
     return (
-        <Link type="button" id="apptButton" to="/client">Schedule an Appointment</Link>
+        <Link type="button" id="apptButton" to={props.link}>{props.title}</Link>
     )
 }
 
