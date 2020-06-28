@@ -19,16 +19,13 @@ const UnAuthNavBar = () => (
         <Nav className="mr-auto">
           <NavLink to="/" id="Home">
             Home
-    </NavLink>
-    <NavLink
-    
-    id="SignUp"
-      to="/authenticate"
-      
-      
-    >
-      Signup/Signin
-    </NavLink>
+          </NavLink>
+          <NavLink          
+          id="SignUp"
+          to="/authenticate"
+          >
+            Signup/Signin
+          </NavLink>
         </Nav>
       </Navbar.Collapse>
     </Navbar>

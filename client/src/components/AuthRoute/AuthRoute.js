@@ -1,23 +1,25 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import { isAuthed } from "../../tokenUtils";
+import { UserContext } from "../../utils/UserContext";
 
 const AuthRoute = ({
   authComponent: AuthComponent,
   unAuthComponent: UnAuthComponent,
   ...rest
-}) => (
+}) => {
+  const { state } = React.useContext(UserContext);
+  return (
   <Route
     {...rest}
     render={props => {
-      const authedId = isAuthed();
-      return authedId ? (
-        <AuthComponent authedId={authedId} {...props} />
+      return state._id ? (
+        <AuthComponent authedId={state._id} {...props} />
       ) : (
         <UnAuthComponent {...props} />
       );
     }}
   />
-);
+)
+};
 
 export default AuthRoute;

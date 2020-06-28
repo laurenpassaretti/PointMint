@@ -15,7 +15,8 @@ function User(props) {
   const [appointments,setAppointments] = useState([])
 
  useEffect(() => {
-   loadRequestedAppointments()
+   loadRequestedAppointments();
+   console.log(state);
  }, []); 
 
 
