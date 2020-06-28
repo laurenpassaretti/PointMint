@@ -13,7 +13,7 @@ function AuthNavBar(props) {
   return(
     <div>
       <Navbar expand="lg" id="NavBar">
-        <img src={Mint} id="Mint" />
+        <img src={Mint} id="Mint" alt="Mint leaf"/>
         <Navbar.Brand id="NavBrand">PointMint</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -21,6 +21,15 @@ function AuthNavBar(props) {
             <NavLink to="/" id="Home">
               Home
             </NavLink>
+            {state.user_type === "client" ? (
+              <NavLink to="/client" id="Client">
+                Sch Appt
+              </NavLink>
+            ) : (
+              <NavLink to="/admin" id="Admin">
+                View Appts
+              </NavLink>
+            )}
             <NavLink
               to={`/users/${state._id}`}
               id="Profile"

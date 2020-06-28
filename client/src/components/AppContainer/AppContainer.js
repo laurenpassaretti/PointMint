@@ -23,7 +23,7 @@ function AppContainer() {
         <Route path="/authenticate" component={Authenticate}/>
         <PrivateRoute path="/users/:userId" component={User} />
         <PrivateRoute path="/client" component={Client}/>
-        <Route path="/admin" component={Admin} />
+        <PrivateRoute path="/admin" component={Admin} />
       </div>
     </Router>     
   );
