@@ -12,7 +12,6 @@ function Client() {
     const [appointments, setAppointments] = useState([])
     const [formObject,setFormObject] = useState({
         name: "",
-        email: "",
         phone: "",
         notes: "", 
         date: ""
@@ -39,14 +38,13 @@ function Client() {
         if (formObject.date || formObject.notes){
             API.saveAppointment({
                 name: formObject.name,
-                email: formObject.email,
+                email: state.email,
                 phone: formObject.number,
                 notes: formObject.notes,
                 date: formObject.date
             })
             .then(() => setFormObject({
                 name: "",
-                email: "", 
                 phone: "", 
                 notes: "", 
                 date: ""
@@ -76,11 +74,10 @@ function Client() {
                 </Form.Group>
                 <Form.Group>
                     <Form.Label>Email</Form.Label>
-                    <Form.Control 
-                    as="textarea" 
-                    name="email"
-                    onChange={handleInputChange}
-                   
+                    <Form.Control
+                        disabled
+                        as="textarea"
+                        placeholder={state.email}
                     ></Form.Control>
                 </Form.Group>
                 <Form.Group>
