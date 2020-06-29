@@ -57,7 +57,11 @@ function Signup(props) {
 
   return (
     <div>
+
+    <div className="justify-content-md-center pt-3" id="Header">
       <h3 id="Header">Create Your PointMint Account</h3>
+      </div>
+
       <form onSubmit={handleFormSubmit} id="Form">
 
         <div className="Input">

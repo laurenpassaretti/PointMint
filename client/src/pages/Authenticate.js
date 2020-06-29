@@ -8,11 +8,13 @@ function Authenticate(props) {
 
     return (
         <Tabs
+        className="justify-content-md-center"
             id="controlled-tab-example"
             activeKey={key}
             onSelect={(k) => setKey(k)}
             >
             <Tab eventKey="signin" title="Signin">
+
                 <Signin {...props}/>
             </Tab>
             <Tab eventKey="signup" title="Signup">
