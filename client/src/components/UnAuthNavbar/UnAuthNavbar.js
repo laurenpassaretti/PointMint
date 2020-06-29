@@ -12,22 +12,19 @@ const UnAuthNavBar = () => (
       <div id="logo">
         <img src={Mint} id="Minty" alt="Mint leaf"/>
       </div>
-
-      <Navbar.Brand id="NavBrand">PointMint</Navbar.Brand>
+      <Navbar.Brand id="NavBrand" href="/">PointMint</Navbar.Brand>
+      
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="mr-auto">
-          <NavLink to="/" id="Home">
-            Home
-          </NavLink>
-          <NavLink          
-          id="SignUp"
-          to="/authenticate"
-          >
+      
+      <Navbar.Collapse id="basic-navbar-nav">  
+        <Nav className="navbar-nav ml-auto px-3">
+
+          <NavLink to="/authenticate" id="SignUp">
             Signup/Signin
           </NavLink>
         </Nav>
       </Navbar.Collapse>
+
     </Navbar>
   </div>
 );
