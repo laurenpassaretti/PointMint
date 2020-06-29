@@ -3,6 +3,10 @@ import { Card, Form, Button} from "react-bootstrap";
 import API from "../utils/API";
 import DTP from '../components/DatePicker/DatePicker'
 import { UserContext } from "../utils/UserContext";
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import './client.css';
 
 function Client() {
     const { state } = React.useContext(UserContext);
@@ -31,7 +35,7 @@ function Client() {
         console.log(state)
         if (formObject.date || formObject.notes){
             API.saveAppointment({
-                name: formObject.name,
+                name: state.name,
                 email: state.email,
                 phone: formObject.number,
                 notes: formObject.notes,
@@ -55,10 +59,16 @@ function Client() {
 
 
     return(
-        <Card>
+
+
+<Container>
+  <Row>
+    <Col></Col>
+    <Col xs={12} md={8}>
+    <Card>
             <Card.Header>Schedule An Appointment</Card.Header>
             <Form>
-            <Form.Group>
+            {/* <Form.Group>
                     <Form.Label>Name</Form.Label>
                     <Form.Control 
                     as="textarea" 
@@ -66,15 +76,15 @@ function Client() {
                     onChange={handleInputChange}
                     value={formObject.name}
                     ></Form.Control>
-                </Form.Group>
-                <Form.Group>
+                </Form.Group> */}
+                {/* <Form.Group>
                     <Form.Label>Email</Form.Label>
                     <Form.Control
                         disabled
                         as="textarea"
                         placeholder={state.email}
                     ></Form.Control>
-                </Form.Group>
+                </Form.Group> */}
                 <Form.Group>
                     <Form.Label>Appointment Notes</Form.Label>
                     <Form.Control 
@@ -103,11 +113,25 @@ function Client() {
                     </Form.Group>
                 <Button variant="primary" type="submit"
                 onClick={handleFormSubmit}
+                id="SubmitButton"
                 >
                     Submit
                 </Button>
+                
             </Form>
-        </Card>        
+        </Card>    
+
+
+
+
+    </Col>
+    <Col></Col>
+  </Row>
+</Container>
+
+
+     
+           
     );
 }
 
