@@ -1,13 +1,12 @@
 import React from "react";
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
 import Carousel from 'react-bootstrap/Carousel'
-import DoctorImg from '../../images/doctor.jpg'
-import Kids from '../../images/kids.jpg'
-import BearImg from '../../images/bear.jpg'
-import signUp from '../../images/signUp.jpg'
-import thumbsUp from '../../images/thumbsUp.jpg'
+import imgOne from '../../images/1.jpg'
+import imgTwo from '../../images/2.jpg'
+import imgThree from '../../images/3.jpg'
+import imgFour from '../../images/4.jpg'
+import imgFive from '../../images/5.jpg'
 import "./Home.css"
 
 function Home(){
@@ -15,12 +14,12 @@ function Home(){
        
         <Container id="Container">
             <Row>
-                <Col md={{ span: 6, offset:3}}>
+                
                 <Carousel id="Carousel">
   <Carousel.Item>
     <img
       className="d-block w-100"
-      src= {DoctorImg}
+      src= {imgOne}
       alt="First slide"
     />
     <Carousel.Caption>
@@ -30,7 +29,7 @@ function Home(){
   <Carousel.Item>
     <img
       className="d-block w-100"
-      src= {BearImg}
+      src= {imgTwo}
       alt="Third slide"
     />
 
@@ -41,7 +40,7 @@ function Home(){
   <Carousel.Item>
     <img
       className="d-block w-100"
-      src= {Kids}
+      src= {imgThree}
       alt="Third slide"
     />
 
@@ -54,7 +53,7 @@ function Home(){
 <Carousel.Item>
 <img
       className="d-block w-100"
-      src= {signUp}
+      src= {imgFour}
       alt="Third slide"
     />
 
@@ -66,7 +65,7 @@ function Home(){
   <Carousel.Item>
 <img
       className="d-block w-100"
-      src= {thumbsUp}
+      src= {imgFive}
       alt="Third slide"
     />
 
@@ -76,7 +75,7 @@ function Home(){
     </Carousel.Caption>
   </Carousel.Item>
 </Carousel>
-                </Col>
+               
             </Row>
 
         </Container>
