@@ -68,9 +68,9 @@ function User(props) {
               <h4>Your requested appointments:</h4>
               {appointments.map((item, idx) => (
                 <ApptList key={idx}
-                              name={item.name}
-                              email={item.email}
-                              phone={item.phone}
+                              // name={item.name}
+                              // email={item.email}
+                              // phone={item.phone}
                               notes={item.notes}
                               date={item.date}/>
               ))}
