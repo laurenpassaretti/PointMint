@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Card, Form, Button} from "react-bootstrap";
+import {Form, Button} from "react-bootstrap";
 import API from "../utils/API";
 import DTP from '../components/DatePicker/DatePicker'
 import { UserContext } from "../utils/UserContext";
@@ -65,9 +65,13 @@ function Client() {
   <Row>
     <Col></Col>
     <Col xs={12} md={8}>
-    <Card>
-            <Card.Header>Schedule An Appointment</Card.Header>
-            <Form>
+    <div className="justify-content-md-center pt-3" id="Header">
+      <h3 id="Header">Schedule An Appointment</h3>
+      </div>
+
+
+            <Form >
+              
             {/* <Form.Group>
                     <Form.Label>Name</Form.Label>
                     <Form.Control 
@@ -85,8 +89,11 @@ function Client() {
                         placeholder={state.email}
                     ></Form.Control>
                 </Form.Group> */}
+                
                 <Form.Group>
-                    <Form.Label>Appointment Notes</Form.Label>
+                    <div id="formtext" className="pl-3">
+                    Appointment Notes
+                    </div>
                     <Form.Control 
                     as="textarea" 
                     name="notes"
@@ -94,35 +101,43 @@ function Client() {
                     value={formObject.notes}
                     ></Form.Control>
                 </Form.Group>
+               
                 <Form.Group>
-                    <Form.Label>Enter Your Phone Number</Form.Label>
+                    <div id="formtext" className="pl-3">
+                    Phone Number
+                    </div>
                     <Form.Control 
-                    as="textarea" 
+                    as="textarea"
                     name="number"
                     onChange ={handleInputChange}
+                    value={formObject.number}
                     ></Form.Control>
                 </Form.Group>
+
                 <Form.Group>
-                    <Form.Label>Available Appointments</Form.Label>
-                   
-                   <DTP
-                   onChange={onChange}
-                   value={formObject.date}
-                   name="date"
+                    <div id="formtext" className="pl-3">
+                    Available Appointments
+                    </div>
+                    <DTP
+                    onChange={onChange}
+                    value={formObject.date}
+                    name="date"
                     />
-                    </Form.Group>
-                <Button variant="primary" type="submit"
+                </Form.Group>
+
+                <Button 
+                variant="primary" 
+                type="submit"
                 onClick={handleFormSubmit}
                 id="SubmitButton"
                 >
-                    Submit
+                Submit
                 </Button>
-                
+
+                <div className="mb-3"></div>
+             
             </Form>
-        </Card>    
-
-
-
+  
 
     </Col>
     <Col></Col>
