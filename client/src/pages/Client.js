@@ -11,8 +11,8 @@ import './client.css';
 
 
 function Client() {
-    const variant = "secondary"; 
     
+
     const { state } = React.useContext(UserContext);
     const [ setAppointments ] = useState([])
     const [formObject,setFormObject] = useState({
@@ -34,19 +34,25 @@ function Client() {
         ).catch(err => console.log(err));
     }
     
+    
+        const [show, setShow] = useState(false);
+      
+        if (show) {
+            return (
+            <Alert variant="success" onClose={() => setShow(false)} dismissible>
+              <Alert.Heading>Your Appointment Request was Successfully Submitted!</Alert.Heading>
+            </Alert> 
+            )}; 
+        
       
    function showAlert() {
-       console.log("you made it to show alert"); 
-    return (
-        <Alert variant={variant}>
-    This is a {variant} alert—check it out!
-  </Alert>
+       
+       setShow(true)
 
-    )}
+    }
 
     function handleFormSubmit(event){
         event.preventDefault(); 
-        console.log(state)
         if (formObject.date || formObject.notes){
             API.saveAppointment({
                 name: state.name,
