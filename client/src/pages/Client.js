@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Form, Button } from "react-bootstrap";
+import {Form, Button} from "react-bootstrap";
 import API from "../utils/API";
 import DTP from '../components/DatePicker/DatePicker'
 import { UserContext } from "../utils/UserContext";
@@ -71,6 +71,7 @@ function Client() {
         const { name, value } = event.target;
         setFormObject({ ...formObject, [name]: value })
     }
+
     return (
         <Container>
             <Row>
@@ -127,6 +128,11 @@ function Client() {
                 <Col></Col>
             </Row>
         </Container>
+
+
+
+
+    
     );
 }
 export default Client;
