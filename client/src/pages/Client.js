@@ -6,6 +6,7 @@ import { UserContext } from "../utils/UserContext";
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import Alert from 'react-bootstrap/Alert'
 import './client.css';
 
 function Client() {
@@ -30,6 +31,16 @@ function Client() {
         ).catch(err => console.log(err));
     }
 
+   function showAlert() {
+       console.log("you made it to show alert"); 
+    return (
+        <div class="alert alert-success" role="alert">
+        <strong>Well done!</strong> You successfully read this important alert message.
+      </div>
+        
+
+    )}
+
     function handleFormSubmit(event){
         event.preventDefault(); 
         console.log(state)
@@ -47,10 +58,20 @@ function Client() {
                 notes: "", 
                 date: ""
             }))
-            .then(() => loadAppointments())
+            .then(() => {
+                loadAppointments(); 
+                showAlert(); 
+            })
+            
             .catch(err => console.log(err)); 
         }
-    }
+        
+        
+    }   
+
+    
+    
+    
     function handleInputChange(event){
         const { name, value } = event.target; 
         setFormObject({...formObject, [name]:value})
@@ -68,23 +89,6 @@ function Client() {
     <Card>
             <Card.Header>Schedule An Appointment</Card.Header>
             <Form>
-            {/* <Form.Group>
-                    <Form.Label>Name</Form.Label>
-                    <Form.Control 
-                    as="textarea" 
-                    name="name"
-                    onChange={handleInputChange}
-                    value={formObject.name}
-                    ></Form.Control>
-                </Form.Group> */}
-                {/* <Form.Group>
-                    <Form.Label>Email</Form.Label>
-                    <Form.Control
-                        disabled
-                        as="textarea"
-                        placeholder={state.email}
-                    ></Form.Control>
-                </Form.Group> */}
                 <Form.Group>
                     <Form.Label>Appointment Notes</Form.Label>
                     <Form.Control 
