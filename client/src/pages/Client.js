@@ -9,7 +9,9 @@ import Col from 'react-bootstrap/Col'
 import Alert from 'react-bootstrap/Alert'
 import './client.css';
 
+
 function Client() {
+    const variant = "secondary"; 
     const { state } = React.useContext(UserContext);
     const [ setAppointments ] = useState([])
     const [formObject,setFormObject] = useState({
@@ -34,10 +36,9 @@ function Client() {
    function showAlert() {
        console.log("you made it to show alert"); 
     return (
-        <div class="alert alert-success" role="alert">
-        <strong>Well done!</strong> You successfully read this important alert message.
-      </div>
-        
+        <Alert variant={variant}>
+    This is a {variant} alert—check it out!
+  </Alert>
 
     )}
 
