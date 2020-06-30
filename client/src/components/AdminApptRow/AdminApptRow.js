@@ -3,11 +3,27 @@ import { Container, Row, Col } from "react-bootstrap";
 import './style.css';
 
 function AdminApptRow(props) {
+    const dateSTR = new Date(props.date)
+
+    const month = [];
+    month[0] = "January";
+    month[1] = "February";
+    month[2] = "March";
+    month[3] = "April";
+    month[4] = "May";
+    month[5] = "June";
+    month[6] = "July";
+    month[7] = "August";
+    month[8] = "September";
+    month[9] = "October";
+    month[10] = "November";
+    month[11] = "December";
+
     return(
         <Container border="secondary">
             <Row>
                 <Col>
-                    <div className="h3">{props.date}</div>
+                    <div className="h3">{month[dateSTR.getMonth()]} {dateSTR.getDate()}, {dateSTR.getFullYear()}</div>
                 </Col>
             </Row>
             <Row>
