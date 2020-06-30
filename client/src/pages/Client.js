@@ -12,6 +12,7 @@ import './client.css';
 
 function Client() {
     const variant = "secondary"; 
+    
     const { state } = React.useContext(UserContext);
     const [ setAppointments ] = useState([])
     const [formObject,setFormObject] = useState({
@@ -32,7 +33,8 @@ function Client() {
         .then(res => setAppointments(res.data)
         ).catch(err => console.log(err));
     }
-
+    
+      
    function showAlert() {
        console.log("you made it to show alert"); 
     return (
