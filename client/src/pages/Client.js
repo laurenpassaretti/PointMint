@@ -54,7 +54,7 @@ function Client() {
                 phone: formObject.number,
                 notes: formObject.notes,
                 date: formObject.date, 
-                approved: false
+                approved: formObject.approved
             })
                 .then(() => setFormObject({
                     name: "",

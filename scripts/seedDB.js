@@ -63,6 +63,18 @@ const staffSeed = [
         user_type: "staff"
     },
     {
+        email: "info@admin.com",
+        name: "Admin",
+        password: "Admin123",
+        user_type: "staff"
+    },
+    {
+        email: "admin@admin.com",
+        name: "Admin",
+        password: "Admin123",
+        user_type: "staff"
+    },
+    {
         email: "foo@bob.com",
         name: "Bob Foo",
         password: "TestBob123"
