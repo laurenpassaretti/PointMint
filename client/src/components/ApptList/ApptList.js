@@ -25,7 +25,6 @@ function ApptList(props){
                 {/* <li>Name: {props.name}</li> */}
                 <li>Date: {month[dateSTR.getMonth()]} {dateSTR.getDate()} {dateSTR.getFullYear()}</li>
                 <li>Notes: {props.notes}</li>
-                <li>Approved: {props.approved}</li>
             </ul>
         </div>
     )

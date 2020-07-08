@@ -16,8 +16,7 @@ function Client() {
         name: "",
         phone: "",
         notes: "",
-        date: "", 
-        approved: false 
+        date: ""
     })
     useEffect(() => {
         loadAppointments()
@@ -53,15 +52,13 @@ function Client() {
                 email: state.email,
                 phone: formObject.number,
                 notes: formObject.notes,
-                date: formObject.date, 
-                approved: formObject.approved
+                date: formObject.date
             })
                 .then(() => setFormObject({
                     name: "",
                     phone: "",
                     notes: "",
-                    date: "", 
-                    approved: ""
+                    date: ""
                 }))
                 .then(() => {
                     loadAppointments();

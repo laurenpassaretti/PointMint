@@ -72,8 +72,7 @@ function User(props) {
                               // email={item.email}
                               // phone={item.phone}
                               notes={item.notes}
-                              date={item.date}
-                              approved={item.approved}/>
+                              date={item.date}/>
               ))}
             </Col>
           </Row>
