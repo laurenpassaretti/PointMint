@@ -5,7 +5,7 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute.js";
 import AuthNavbar from "../AuthNavbar/AuthNavbar";
 import UnAuthNavbar from "../UnAuthNavbar/UnAuthNavbar.js";
 import Home from "../Home/Home.js";
-import User from "../../pages/User";
+import User from "../../pages/User.js";
 import Authenticate from '../../pages/Authenticate'
 import Client from '../../pages/Client'
 import Admin from '../../pages/Admin'
